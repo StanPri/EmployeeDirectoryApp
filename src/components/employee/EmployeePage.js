@@ -68,7 +68,7 @@ class EmployeePage extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} lg={6}>
+          <Col xs={12} lg={6} className="leftCol">
             <EmployeeList
               employees={this.state.employees}
               onClick={this.employeeListClick}
