@@ -1,6 +1,16 @@
-.navbar-static-bottom {
-  @extend .navbar-fixed-bottom;
+body {
+  margin-bottom: @navbar-height;
+}
+html {
   position: relative;
-  border-width: 1px 1px 0;
-  margin-top: 15px;
+  min-height: 100%;
+}
+.navbar-static-bottom {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
+  height: @navbar-height;
+  background-color: @gray-lighter;
+  border-top: 1px solid darken(@gray-lighter, 20%);
 }

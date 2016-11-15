@@ -1,4 +1,8 @@
-.navbar-static-top {
+body {
+  margin-top: @navbar-height + @line-height-computed;
+}
+
+.navbar-fixed-top {
   background-color: @brand-primary;
   border-bottom: 3px solid #fbad23;
 
@@ -31,7 +35,7 @@
   }
 
   .cio-logo-text1 {
-    color: #44daff;
+    color: lighten(@brand-primary, 50%);
     margin-left: -13px;
     margin-top: 5px;
     margin-bottom: -8px;

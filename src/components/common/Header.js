@@ -8,7 +8,7 @@ Header.propTypes = {};
 
 function Header(props) {
   return (
-    <Navbar staticTop>
+    <Navbar fixedTop>
       <Row>
         <Col xs={1}>
           <a href="http://www.ca.gov"><img src={ca_gov_logo}/></a>
