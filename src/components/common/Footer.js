@@ -6,9 +6,8 @@ Footer.propTypes = {};
 
 function Footer(props) {
   return (
-    <Navbar fixedBottom>
-    </Navbar>
+    <Navbar fixedBottom />
   );
-};
+}
 
 export default Footer;
