@@ -11,9 +11,9 @@ function EmployeeList(props) {
     <Table striped bordered hover>
       <thead>
         <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Group</th>
+          <th className="col-xs-3">First Name</th>
+          <th className="col-xs-3">Last Name</th>
+          <th className="col-xs-6">Group</th>
         </tr>
       </thead>
       <tbody>

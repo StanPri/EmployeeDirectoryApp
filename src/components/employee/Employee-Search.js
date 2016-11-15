@@ -7,7 +7,7 @@ Search.propTypes = {
 
 function Search(props) {
   return (
-    <Form horizontal className="search-box">
+    <Form horizontal className="employee-search">
       <FormGroup>
         <InputGroup bsSize="lg">
           <FormControl type="text" onChange={props.onChange}/>
