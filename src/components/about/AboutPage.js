@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 class AboutPage extends React.Component {
   render() {
     return (
       <div>
         <h1>About</h1>
-        <p>This application uses React, Redux, React Router and a variety of other helpful libraries.</p>
+        <p>This is Employee Directory!</p>
       </div>
     );
   }
 }
+
+AboutPage.propTypes = {};
 
 export default AboutPage;

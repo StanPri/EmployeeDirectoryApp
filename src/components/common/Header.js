@@ -4,7 +4,9 @@ import {Navbar, Row, Col, Button} from 'react-bootstrap';
 const ca_gov_logo = require('../../images/ca_gov_logo.png');
 const cio_logo = require('../../images/cio_logo.png');
 
-const Header = () => {
+Header.propTypes = {};
+
+function Header(props) {
   return (
     <Navbar staticTop>
       <Row>
@@ -30,13 +32,10 @@ const Header = () => {
           <Col xs={2}>
             <Link to="/about" activeClassName="active"><Button className="btn-outline">About</Button></Link>
           </Col>
-          <Col xs={2}>
-            <Link to="/employee" activeClassName="active"><Button className="btn-outline">Employee</Button></Link>
-          </Col>
         </Col>
       </Row>
     </Navbar>
   );
-};
+}
 
 export default Header;
