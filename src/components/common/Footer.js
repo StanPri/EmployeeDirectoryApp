@@ -6,7 +6,7 @@ Footer.propTypes = {};
 
 function Footer(props) {
   return (
-    <Navbar fixedBottom />
+    <Navbar className="navbar-static-bottom" />
   );
 }
 
