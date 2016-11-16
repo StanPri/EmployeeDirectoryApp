@@ -8,7 +8,7 @@ EmployeeList.propTypes = {
 
 function EmployeeList(props) {
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover className={Object.keys(props.employees).length ? '' : 'hidden'}>
       <thead>
         <tr>
           <th className="col-xs-3">First Name</th>

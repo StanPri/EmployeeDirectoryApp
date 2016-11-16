@@ -14,27 +14,31 @@ class EmployeePage extends React.Component {
     super(props);
     this.state = {
       page: 0,
-      employees: EmployeeData.slice(0, NumPerPage),
+      employees: [],
       filter: '',
-      employee: EmployeeData[0],
-      manager: EmployeeData.filter((emp) => {
-        return emp.FullName === EmployeeData[0].Manager;
-      })[0]
+      employee: {},
+      manager: {}
     };
     this.EmployeeSearchHandleChange = this.EmployeeSearchHandleChange.bind(this);
     this.EmployeeListHandleClick = this.EmployeeListHandleClick.bind(this);
   }
 
   EmployeeSearchHandleChange(e) {
-    let _search = e.target.value;
-    let re = new RegExp(_search, 'i');
-    let _employees = EmployeeData.filter((emp) => {
-      if (emp.FullName.match(re) || emp.Department.match(re)) {
-        return true;
-      }
-      return false;
-    }).slice(0, NumPerPage);
-    this.setState({employees: _employees});
+    if (e.target.value.length) {
+      let _search = e.target.value;
+      let re = new RegExp(_search, 'i');
+      let _employees = EmployeeData.filter((emp) => {
+        if (emp.FullName.match(re) || emp.Department.match(re)) {
+          return true;
+        }
+        return false;
+      }).slice(0, NumPerPage);
+      this.setState({employees: _employees});
+    }
+    else {
+      this.setState({employees: []});
+    }
+    this.setState({employee: {}});
   }
 
   EmployeeListHandleClick(e) {
@@ -42,8 +46,8 @@ class EmployeePage extends React.Component {
     let _manager = EmployeeData.filter((emp) => {
       return emp.FullName === _employee.Manager;
     })[0];
-    this.setState({employee: _employee});
-    this.setState({manager: _manager});
+    this.setState({employee: _employee || {}});
+    this.setState({manager: _manager || {}});
   }
 
   render() {
@@ -66,7 +70,7 @@ class EmployeePage extends React.Component {
             <EmployeeDetail employee={this.state.employee}/>
           </Col>
           <Col xs={11} lg={5}>
-            <ManagerDetail manager={this.state.manager}/>
+            <ManagerDetail employee={this.state.employee} manager={this.state.manager}/>
           </Col>
         </Row>
       </Grid>
