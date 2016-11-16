@@ -8,13 +8,17 @@ import ManagerDetail from './Employee-ManagerDetail';
 import EmployeeData from '../../data/TestData';
 
 const NumPerPage = 15;
+const _employeeData = EmployeeData;
 
 class EmployeePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 0,
-      employees: EmployeeData.slice(0, NumPerPage),
+      employees: EmployeeData,
+      numberOfPages:  Math.ceil(_employeeData.length / NumPerPage),
+      currentPage: 1,
+      firstEmployeeOnPage: 0,
+      lastEmployeeOnPage: NumPerPage,
       filter: '',
       employee: EmployeeData[0],
       manager: EmployeeData.filter((emp) => {
@@ -23,6 +27,7 @@ class EmployeePage extends React.Component {
     };
     this.EmployeeSearchHandleChange = this.EmployeeSearchHandleChange.bind(this);
     this.EmployeeListHandleClick = this.EmployeeListHandleClick.bind(this);
+    this.PageNumbersHandleClick = this.PageNumbersHandleClick.bind(this);
   }
 
   EmployeeSearchHandleChange(e) {
@@ -33,18 +38,33 @@ class EmployeePage extends React.Component {
         return true;
       }
       return false;
-    }).slice(0, NumPerPage);
+    });
+    let _numberOfPages = Math.ceil(_employees.length / NumPerPage);
+    this.setState({firstEmployeeOnPage: 0});
+    this.setState({lastEmployeeOnPage: NumPerPage});
     this.setState({employees: _employees});
+    this.setState({numberOfPages: _numberOfPages});
   }
 
   EmployeeListHandleClick(e) {
-    let _employee = this.state.employees[e.target.parentNode.dataset.employee];
+    let _employee = this.state.employees[this.state.firstEmployeeOnPage + +e.target.parentNode.dataset.employee];
     let _manager = EmployeeData.filter((emp) => {
       return emp.FullName === _employee.Manager;
     })[0];
     this.setState({employee: _employee});
     this.setState({manager: _manager});
   }
+
+  PageNumbersHandleClick(e){
+    let _lastEmployeeOnPage = e*NumPerPage;
+    let _firstEmployeeOnPage = _lastEmployeeOnPage-15;
+    this.setState({currentPage: e});
+    this.setState({firstEmployeeOnPage: _firstEmployeeOnPage});
+    this.setState({lastEmployeeOnPage: _lastEmployeeOnPage});
+  }
+
+
+
 
   render() {
     return (
@@ -55,12 +75,16 @@ class EmployeePage extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} lg={6} className="left-column">
+          <Col xs={12} lg={6}>
             <EmployeeList
               employees={this.state.employees}
+              numberOfPages={this.state.numberOfPages}
+              currentPage={this.state.currentPage}
               onClick={this.EmployeeListHandleClick}
-              filter={this.state.filter}/>
-            <PageNumbers/>
+              onPageClick={this.PageNumbersHandleClick}
+              filter={this.state.filter}
+              firstEmployeeOnPage={this.state.firstEmployeeOnPage}
+              lastEmployeeOnPage={this.state.lastEmployeeOnPage}/>
           </Col>
           <Col xs={12} lg={6}>
             <EmployeeDetail employee={this.state.employee}/>
