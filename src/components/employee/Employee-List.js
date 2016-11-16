@@ -17,8 +17,8 @@ function EmployeeList(props) {
   let _employees = props.employees.slice(props.firstEmployeeOnPage, props.lastEmployeeOnPage);
 
   return (
-    <div>
-      <Table striped bordered hover className={Object.keys(props.employees).length ? '' : 'hidden'}>
+    <div className={Object.keys(props.employees).length ? '' : 'hidden'}>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th className="col-xs-3">First Name</th>
