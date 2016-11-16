@@ -1,16 +1,19 @@
 body {
-  margin-bottom: @navbar-height;
+  margin-bottom: @footer-height;
 }
+
 html {
   position: relative;
   min-height: 100%;
 }
-.navbar-static-bottom {
+
+.navbar.navbar-static-bottom {
   position: absolute;
   bottom: 0;
   margin-bottom: 0;
   width: 100%;
-  height: @navbar-height;
+  min-height: @footer-height;
   background-color: @gray-lighter;
   border-top: 1px solid darken(@gray-lighter, 20%);
+  .text-center;
 }

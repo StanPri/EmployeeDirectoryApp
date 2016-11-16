@@ -26,7 +26,7 @@ function Header(props) {
           </Col>
         </Col>
         <Col xs={6} className="header-links">
-          <Col xs={2} xsOffset={6}>
+          <Col xs={2} xsOffset={8}>
             <IndexLink to="/" activeClassName="active"><Button className="btn-outline">Home</Button></IndexLink>
           </Col>
           <Col xs={2}>
