@@ -10,7 +10,7 @@ function Search(props) {
     <Form horizontal className="employee-search">
       <FormGroup>
         <InputGroup bsSize="lg">
-          <FormControl type="text" onChange={props.onChange}/>
+          <FormControl type="text" placeholder="Search" onChange={props.onChange}/>
           <InputGroup.Button>
             <Button>Search</Button>
           </InputGroup.Button>
