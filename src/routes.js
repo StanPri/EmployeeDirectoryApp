@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
-import AboutPage from './components/about/AboutPage';
+import AboutPage from './components/about/_AboutPage';
 import EmployeePage from './components/employee/_EmployeePage';
 
 export default (
