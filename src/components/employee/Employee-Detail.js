@@ -19,9 +19,8 @@ function EmployeeDetail(props) {
     'RoomNumber': 'Desk Location',
     'POBox': 'Mail Stop'
   };
-
   return (
-    <Table bordered>
+    <Table bordered className={Object.keys(props.employee).length ? '' : 'hidden'}>
       <thead>
         <tr className="active">
           <th colSpan="2">

@@ -8,7 +8,7 @@ Header.propTypes = {};
 
 function Header(props) {
   return (
-    <Navbar staticTop>
+    <Navbar fixedTop>
       <Row>
         <Col xs={1}>
           <a href="http://www.ca.gov"><img src={ca_gov_logo}/></a>
@@ -26,7 +26,7 @@ function Header(props) {
           </Col>
         </Col>
         <Col xs={6} className="header-links">
-          <Col xs={2} xsOffset={6}>
+          <Col xs={2} xsOffset={8}>
             <IndexLink to="/" activeClassName="active"><Button className="btn-outline">Home</Button></IndexLink>
           </Col>
           <Col xs={2}>

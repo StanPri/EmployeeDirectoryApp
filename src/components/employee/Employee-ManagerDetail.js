@@ -2,7 +2,8 @@ import React, {PropTypes} from 'react';
 import Table from 'react-bootstrap/lib/Table';
 
 ManagerDetail.propTypes = {
-  manager: PropTypes.object
+  manager: PropTypes.object.isRequired,
+  employee: PropTypes.object.isRequired
 };
 
 function ManagerDetail(props) {
@@ -12,7 +13,7 @@ function ManagerDetail(props) {
     'EmailAddress': 'Email'
   };
   return (
-    <Table bordered>
+    <Table bordered className={Object.keys(props.employee).length ? '' : 'hidden'}>
       <thead>
         <tr className="active">
           <th colSpan="2">
@@ -26,7 +27,7 @@ function ManagerDetail(props) {
             <tr key={key}>
               <td className="col-xs-3">{fields[key]}</td>
               <td className="col-xs-9">
-                {props.manager ? props.manager[key] : ''}
+                {Object.keys(props.manager).length ? props.manager[key] : 'Not Available'}
               </td>
             </tr>
           );
