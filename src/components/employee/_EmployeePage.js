@@ -41,21 +41,29 @@ class EmployeePage extends React.Component {
       let _numberOfPages = Math.ceil(_employees.length / NumPerPage);
       this.setState({employees: _employees});
       this.setState({numberOfPages: _numberOfPages});
-    }
-    else {
+    } else {
       this.setState({employees: []});
       this.setState({numberOfPages: 0});
     }
+    // remove all highlighting from employeeList
+    document.querySelectorAll('[data-employee]').forEach((e) => {
+      e.classList.remove('active');
+    });
     this.setState({employee: {}});
     this.setState({firstEmployeeOnPage: 0});
     this.setState({lastEmployeeOnPage: NumPerPage});
   }
 
   EmployeeListHandleClick(e) {
-    let _employee = this.state.employees[this.state.firstEmployeeOnPage + +e.target.parentNode.dataset.employee];
+    let _employee = this.state.employees[this.state.firstEmployeeOnPage + + e.target.parentNode.dataset.employee];
     let _manager = EmployeeData.filter((emp) => {
       return emp.FullName === _employee.Manager;
     })[0];
+    // remove all highlighting from employeeList then add to selected row
+    document.querySelectorAll('[data-employee]').forEach((e) => {
+      e.classList.remove('active');
+    });
+    e.target.parentNode.classList.add('active');
     this.setState({
       employee: _employee || {}
     });
