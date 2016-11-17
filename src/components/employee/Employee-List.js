@@ -27,7 +27,7 @@ function EmployeeList(props) {
         <tbody>
           {Object.keys(_employees).map((key) => {
             return (
-              <tr key={key} onClick={props.EmployeeListOnClick} data-employee={key}>
+              <tr key={key} onClick={props.EmployeeListOnClick} data-employee={key} className={'employee-list-row'}>
                 <td>{_employees[key]['firstName']}</td>
                 <td>{_employees[key]['lastName']}</td>
                 <td>{_employees[key]['group']}</td>
