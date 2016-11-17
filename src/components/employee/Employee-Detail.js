@@ -19,13 +19,13 @@ function EmployeeDetail(props) {
     'deskLocation': 'Desk Location',
     'mailStop': 'Mail Stop'
   };
-  
+
   return (
     <Table bordered className={Object.keys(props.employee).length ? '' : 'hidden'}>
       <thead>
         <tr className="table-header">
           <th colSpan="2">
-            <h2 className="pull-left">{props.employee.FullName}</h2>
+            <h2 className="pull-left">{props.employee.fullName}</h2>
             <Button className="pull-right" bsSize="large">Print</Button>
           </th>
         </tr>
