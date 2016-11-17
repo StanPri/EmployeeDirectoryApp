@@ -30,7 +30,7 @@ class EmployeePage extends React.Component {
 
   EmployeeSearchHandleChange(e) {
     if (e.target.value.length) {
-      let _search = e.target.value;
+      let _search = '(?=.*' + e.target.value.split(/, +|,| +/).join(')(?=.*') + ')';
       let re = new RegExp(_search, 'i');
       let _employees = EmployeeData.filter((emp) => {
         if (emp.FullName.match(re) || emp.Department.match(re)) {
@@ -55,7 +55,7 @@ class EmployeePage extends React.Component {
   }
 
   EmployeeListHandleClick(e) {
-    let _employee = this.state.employees[this.state.firstEmployeeOnPage + + e.target.parentNode.dataset.employee];
+    let _employee = this.state.employees[this.state.firstEmployeeOnPage + +e.target.parentNode.dataset.employee];
     let _manager = EmployeeData.filter((emp) => {
       return emp.FullName === _employee.Manager;
     })[0];
