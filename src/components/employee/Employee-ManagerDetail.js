@@ -8,9 +8,9 @@ ManagerDetail.propTypes = {
 
 function ManagerDetail(props) {
   const fields = {
-    'FullName': 'Name',
-    'OfficePhone': 'Desk Phone',
-    'EmailAddress': 'Email'
+    'fullName': 'Name',
+    'deskPhone': 'Desk Phone',
+    'email': 'Email'
   };
   return (
     <Table bordered className={Object.keys(props.employee).length ? '' : 'hidden'}>

@@ -69,7 +69,7 @@ class EmployeePage extends React.Component {
   EmployeeListHandleClick(e) {
     let _employee = this.state.employees[this.state.firstEmployeeOnPage + +e.target.parentNode.dataset.employee];
     let _manager = this.state.employeeData.filter((emp) => {
-      return emp.FullName === _employee.Manager;
+      return emp.fullName === _employee.manager;
     })[0];
     // remove all highlighting from employeeList then add to selected row
     document.querySelectorAll('[data-employee]').forEach((e) => {

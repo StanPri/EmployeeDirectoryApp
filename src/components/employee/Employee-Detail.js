@@ -7,6 +7,7 @@ EmployeeDetail.propTypes = {
 
 function EmployeeDetail(props) {
   const fields = {
+    //left hand side is api names, right hand side is rendering
     'group': 'Group',
     'classification': 'Classification',
     'deskPhone': 'Desk Phone',
@@ -19,7 +20,6 @@ function EmployeeDetail(props) {
     'deskLocation': 'Desk Location',
     'mailStop': 'Mail Stop'
   };
-
   return (
     <Table bordered className={Object.keys(props.employee).length ? '' : 'hidden'}>
       <thead>
