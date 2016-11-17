@@ -7,18 +7,19 @@ EmployeeDetail.propTypes = {
 
 function EmployeeDetail(props) {
   const fields = {
-    'Department': 'Group',
-    'Title': 'Classification',
-    'OfficePhone': 'Desk Phone',
-    'EmailAddress': 'Email Address',
-    'MobilePhone': 'Cell Phone',
-    'Fax': 'Fax Number',
-    'EmployeeNumber': 'Employee Number',
-    'PostalCode': 'Reporting Unit',
-    'Office': 'Campus',
-    'RoomNumber': 'Desk Location',
-    'POBox': 'Mail Stop'
+    'group': 'Group',
+    'classification': 'Classification',
+    'deskPhone': 'Desk Phone',
+    'email': 'Email Address',
+    'cellPhone': 'Cell Phone',
+    'faxNumber': 'Fax Number',
+    'employeeNumber': 'Employee Number',
+    'reportingUnit': 'Reporting Unit',
+    'campus': 'Campus',
+    'deskLocation': 'Desk Location',
+    'mailStop': 'Mail Stop'
   };
+  
   return (
     <Table bordered className={Object.keys(props.employee).length ? '' : 'hidden'}>
       <thead>

@@ -5,17 +5,16 @@ import EmployeeList from './Employee-List';
 import PageNumbers from './Employee-PageNumbers';
 import EmployeeDetail from './Employee-Detail';
 import ManagerDetail from './Employee-ManagerDetail';
-import EmployeeData from '../../data/TestData';
 
 const NumPerPage = 15;
-const _employeeData = EmployeeData;
 
 class EmployeePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      employees: _employeeData,
-      numberOfPages: Math.ceil(_employeeData.length / NumPerPage),
+      employeeData: [],
+      employees: [],
+      numberOfPages: 0,
       currentPage: 1,
       firstEmployeeOnPage: 0,
       lastEmployeeOnPage: NumPerPage,
@@ -28,12 +27,25 @@ class EmployeePage extends React.Component {
     this.PageNumbersHandleClick = this.PageNumbersHandleClick.bind(this);
   }
 
+  componentDidMount() {
+    fetch('http://EDAPI/employees')
+      .then(response => response.json())
+      .then(json => {
+        json = sortByKey(json, 'lastName');
+        this.setState({
+          employees: json,
+          employeeData: json,
+          numberOfPages: Math.ceil(json.length / NumPerPage)
+        });
+      });
+  }
+
   EmployeeSearchHandleChange(e) {
     if (e.target.value.length) {
       let _search = '(?=.*' + e.target.value.split(/, +|,| +/).join(')(?=.*') + ')';
       let re = new RegExp(_search, 'i');
-      let _employees = EmployeeData.filter((emp) => {
-        if (emp.FullName.match(re) || emp.Department.match(re)) {
+      let _employees = this.state.employeeData.filter((emp) => {
+        if (emp.fullName.match(re) || emp.group.match(re)) {
           return true;
         }
         return false;
@@ -56,7 +68,7 @@ class EmployeePage extends React.Component {
 
   EmployeeListHandleClick(e) {
     let _employee = this.state.employees[this.state.firstEmployeeOnPage + +e.target.parentNode.dataset.employee];
-    let _manager = EmployeeData.filter((emp) => {
+    let _manager = this.state.employeeData.filter((emp) => {
       return emp.FullName === _employee.Manager;
     })[0];
     // remove all highlighting from employeeList then add to selected row
@@ -102,6 +114,13 @@ class EmployeePage extends React.Component {
       </Grid>
     );
   }
+}
+
+function sortByKey(array, key) {
+  return array.sort(function(a, b) {
+      let x = a[key]; let y = b[key];
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
 }
 
 EmployeePage.propTypes = {};
