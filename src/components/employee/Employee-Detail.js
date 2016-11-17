@@ -35,7 +35,7 @@ function EmployeeDetail(props) {
           return (
             <tr key={key}>
               <td className="col-xs-3">{fields[key]}</td>
-              <td className="col-xs-9">{props.employee[key]}</td>
+              <td className="col-xs-9">{props.employee[key] ? props.employee[key] : '(Not Available)'}</td>
             </tr>);
         })}
       </tbody>

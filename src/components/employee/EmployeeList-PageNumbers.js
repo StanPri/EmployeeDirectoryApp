@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {Col, Pagination, Row} from 'react-bootstrap';
 
 PageNumbers.propTypes = {
-  onPageClick: PropTypes.func.isRequired,
+  EmployeePageNumbersOnSelect: PropTypes.func.isRequired,
   numberOfPages : PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired
 
@@ -11,9 +11,9 @@ PageNumbers.propTypes = {
 function PageNumbers(props) {
   return (
     <div className="text-center">
-      <Pagination maxButtons={5} bsSize="large"
-      first last boundaryLinks
-      items={props.numberOfPages} activePage={props.currentPage} onSelect={props.onPageClick}/>
+      <Pagination maxButtons={5} bsSize="large" first last boundaryLinks
+      items={props.numberOfPages} activePage={props.currentPage+1}
+      onSelect={props.EmployeePageNumbersOnSelect}/>
     </div>
   );
 }
