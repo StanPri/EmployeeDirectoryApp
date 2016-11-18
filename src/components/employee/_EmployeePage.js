@@ -79,7 +79,6 @@ class EmployeePage extends React.Component {
   }
 
   EmployeeManagerDetailHandleClick(e) {
-    console.log(e.target.value);
     let _employee = this.state.employeeData.filter((emp) => {
       return emp.fullName === e.target.value;
     })[0];

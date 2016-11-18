@@ -39,7 +39,7 @@ function ManagerDetail(props) {
                       //otherwise, just output the data
                       :  props.manager[key])
                   //or if manager doesn't exist then...
-                  : 'Not Available' )
+                  : '(Not Available)' )
                 }
                 </td>
             </tr>
