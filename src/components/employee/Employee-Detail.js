@@ -21,7 +21,7 @@ function EmployeeDetail(props) {
     'mailStop': 'Mail Stop'
   };
   return (
-    <Table bordered className={Object.keys(props.employee).length ? '' : 'hidden'}>
+    <Table bordered condensed className={Object.keys(props.employee).length ? '' : 'hidden'}>
       <thead>
         <tr className="table-header">
           <th colSpan="2">

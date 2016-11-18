@@ -13,11 +13,11 @@ function ManagerDetail(props) {
     'email': 'Email'
   };
   return (
-    <Table bordered className={Object.keys(props.employee).length ? '' : 'hidden'}>
+    <Table bordered condensed className={Object.keys(props.employee).length ? '' : 'hidden'}>
       <thead>
         <tr className="table-header">
           <th colSpan="2">
-            <h3>Manager</h3>
+            <h4>Manager</h4>
           </th>
         </tr>
       </thead>
