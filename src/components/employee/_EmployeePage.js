@@ -82,17 +82,16 @@ class EmployeePage extends React.Component {
     let _employee = this.state.employeeData.filter((emp) => {
       return emp.fullName === e.target.value;
     })[0];
-
     let _manager = this.state.employeeData.filter((emp) => {
       return emp.fullName === _employee.manager;
     })[0];
-
     this.setState({
       employee: _employee || {}
     });
     this.setState({
       manager: _manager || {}
     });
+    removeActive();
   }
 
   render() {
