@@ -33,7 +33,7 @@ function ManagerDetail(props) {
                     <input type="button"
                       onClick={props.onClick}
                       value={props.manager[key]} /> : props.manager[key] )
-                  : 'Not Available'}
+                  : '(Not Available)'}
               </td>
             </tr>
           );
