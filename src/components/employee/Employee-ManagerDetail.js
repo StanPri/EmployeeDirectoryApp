@@ -3,7 +3,8 @@ import Table from 'react-bootstrap/lib/Table';
 
 ManagerDetail.propTypes = {
   manager: PropTypes.object.isRequired,
-  employee: PropTypes.object.isRequired
+  employee: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 function ManagerDetail(props) {
@@ -27,7 +28,12 @@ function ManagerDetail(props) {
             <tr key={key}>
               <td className="col-xs-3">{fields[key]}</td>
               <td className="col-xs-9">
-                {Object.keys(props.manager).length ? props.manager[key] : '(Not Available)'}
+                {Object.keys(props.manager).length ?
+                  ( (fields[key] === 'Name') ?
+                    <input type="button"
+                      onClick={props.onClick}
+                      value={props.manager[key]} /> : props.manager[key] )
+                  : 'Not Available'}
               </td>
             </tr>
           );

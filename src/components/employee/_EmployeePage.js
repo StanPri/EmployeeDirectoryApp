@@ -22,6 +22,7 @@ class EmployeePage extends React.Component {
     this.EmployeeSearchHandleChangeDelayed = this.EmployeeSearchHandleChangeDelayed.bind(this);
     this.EmployeeListHandleClick = this.EmployeeListHandleClick.bind(this);
     this.EmployeePageNumbersHandleSelect = this.EmployeePageNumbersHandleSelect.bind(this);
+    this.EmployeeManagerDetailHandleClick = this.EmployeeManagerDetailHandleClick.bind(this);
   }
 
   componentDidMount() {
@@ -85,6 +86,23 @@ class EmployeePage extends React.Component {
     removeActive();
   }
 
+  EmployeeManagerDetailHandleClick(e) {
+    let _employee = this.state.employeeData.filter((emp) => {
+      return emp.fullName === e.target.value;
+    })[0];
+
+    let _manager = this.state.employeeData.filter((emp) => {
+      return emp.fullName === _employee.manager;
+    })[0];
+
+    this.setState({
+      employee: _employee || {}
+    });
+    this.setState({
+      manager: _manager || {}
+    });
+  }
+
   render() {
     return (
       <Grid fluid>
@@ -104,7 +122,10 @@ class EmployeePage extends React.Component {
             <EmployeeDetail employee={this.state.employee}/>
           </Col>
           <Col xs={11} lg={5}>
-            <EmployeeManagerDetail employee={this.state.employee} manager={this.state.manager}/>
+            <EmployeeManagerDetail
+              employee={this.state.employee}
+              manager={this.state.manager}
+              onClick={this.EmployeeManagerDetailHandleClick}/>
           </Col>
         </Row>
       </Grid>
