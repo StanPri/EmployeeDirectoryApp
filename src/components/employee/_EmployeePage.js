@@ -19,7 +19,6 @@ class EmployeePage extends React.Component {
       manager: {}
     };
     this.EmployeeSearchHandleChange = this.EmployeeSearchHandleChange.bind(this);
-    this.EmployeeSearchHandleChangeDelayed = this.EmployeeSearchHandleChangeDelayed.bind(this);
     this.EmployeeListHandleClick = this.EmployeeListHandleClick.bind(this);
     this.EmployeePageNumbersHandleSelect = this.EmployeePageNumbersHandleSelect.bind(this);
     this.EmployeeManagerDetailHandleClick = this.EmployeeManagerDetailHandleClick.bind(this);
@@ -39,11 +38,6 @@ class EmployeePage extends React.Component {
   }
 
   EmployeeSearchHandleChange(e) {
-    e.persist();
-    debounce(this.EmployeeSearchHandleChangeDelayed, 250)(e);
-  }
-
-  EmployeeSearchHandleChangeDelayed(e) {
     if (e.target.value.length > 1) {
       let _search = '(?=.*' + e.target.value.split(/, +|,| +/).join(')(?=.*') + ')';
       let re = new RegExp(_search, 'i');
@@ -53,12 +47,11 @@ class EmployeePage extends React.Component {
         }
         return false;
       });
-      let _numberOfPages = Math.ceil(_employees.length / this.state.numPerPage);
       this.setState({employees: _employees});
-      this.setState({numberOfPages: _numberOfPages});
+      this.setState({numberOfPages: Math.ceil(_employees.length / this.state.numPerPage)});
     } else {
-      this.setState({employees: []});
-      this.setState({numberOfPages: 0});
+      this.setState({employees: this.state.employeeData});
+      this.setState({numberOfPages: Math.ceil(this.state.employeeData.length / this.state.numPerPage)});
     }
     removeActive();
     this.setState({employee: {}});
@@ -70,7 +63,6 @@ class EmployeePage extends React.Component {
     let _manager = this.state.employeeData.filter((emp) => {
       return emp.fullName === _employee.manager;
     })[0];
-    // remove all highlighting from employeeList then add to selected row
     removeActive();
     e.target.parentNode.classList.add('active');
     this.setState({
@@ -144,23 +136,6 @@ function removeActive() {
   document.querySelectorAll('[data-employee]').forEach((e) => {
     e.classList.remove('active');
   });
-}
-
-function debounce(func, wait, immediate) {
-    let timeout;
-    return function() {
-        let context = this,
-            args = arguments;
-        let callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-             timeout = null;
-             if (!immediate) {
-               func.apply(context, args);
-             }
-        }, wait);
-        if (callNow) func.apply(context, args);
-     };
 }
 
 EmployeePage.propTypes = {};
