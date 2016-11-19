@@ -1,12 +1,13 @@
 .employee-manager-row {
   background:none!important;
-   border:none;
-   padding:0!important;
-   font: inherit;
-   /*border is optional*/
-   border-bottom: 1px solid blue;
-   cursor: pointer;
-   color: blue;
-   outline: none;
-
+  border:none;
+  padding:0!important;
+  font: inherit;
+  cursor: pointer;
+  color: @brand-primary;
+  outline: none;
+}
+.employee-manager-row:hover {
+  text-decoration: underline;
+  color: darken(@brand-primary, 15%)
 }

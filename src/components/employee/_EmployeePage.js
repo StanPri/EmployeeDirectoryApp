@@ -116,7 +116,7 @@ class EmployeePage extends React.Component {
             <EmployeeManagerDetail
               employee={this.state.employee}
               manager={this.state.manager}
-              onClick={this.EmployeeManagerDetailHandleClick}/>
+              EmployeeManagerDetailOnClick={this.EmployeeManagerDetailHandleClick}/>
           </Col>
         </Row>
       </Grid>

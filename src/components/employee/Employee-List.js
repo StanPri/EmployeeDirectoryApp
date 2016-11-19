@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import Table from 'react-bootstrap/lib/Table';
+import {Table} from 'react-bootstrap';
 import EmployeeListPageNumbers from './EmployeeList-PageNumbers';
 
 EmployeeList.propTypes = {
