@@ -24,19 +24,6 @@ class EmployeePage extends React.Component {
     this.EmployeeManagerDetailHandleClick = this.EmployeeManagerDetailHandleClick.bind(this);
   }
 
-  componentDidMount() {
-    fetch('http://EDAPI/employees')
-      .then(response => response.json())
-      .then(json => {
-        json = sortByKey(json, 'lastName');
-        this.setState({
-          employees: json,
-          employeeData: json,
-          numberOfPages: Math.ceil(json.length / this.state.numPerPage)
-        });
-      });
-  }
-
   EmployeeSearchHandleChange(e) {
     if (e.target.value.length > 1) {
       let _search = '(?=.*' + e.target.value.split(/, +|,| +/).join(')(?=.*') + ')';
