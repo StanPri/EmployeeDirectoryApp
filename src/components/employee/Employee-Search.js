@@ -11,7 +11,7 @@ function Search(props) {
   return (
     <Form horizontal className="employee-search" onSubmit={props.EmployeeSearchIgnoreEnterOnSubmit}>
       <FormGroup>
-        <InputGroup bsSize="lg">
+        <InputGroup>
           <FormControl type="text" placeholder="Search" onChange={props.EmployeeSearchOnChange}/>
           <InputGroup.Button>
             <Button>Search</Button>

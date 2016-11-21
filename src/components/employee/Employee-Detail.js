@@ -25,10 +25,10 @@ function EmployeeDetail(props) {
       ? ''
       : 'hidden'}>
       <thead>
-        <tr className="table-header">
+        <tr>
           <th colSpan="2">
-            <h2 className="pull-left">{props.employee.fullName}</h2>
-            <Button className="pull-right no-print" bsSize="large" onClick={window.print}>Print</Button>
+            <span className="pull-left employee-detail-header">{props.employee.fullName}</span>
+            <Button className="pull-right no-print" onClick={window.print}>Print</Button>
           </th>
         </tr>
       </thead>

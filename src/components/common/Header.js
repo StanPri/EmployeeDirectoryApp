@@ -41,29 +41,29 @@ class Header extends React.Component {
     return (
       <Navbar fixedTop>
         <Row>
-          <Col xs={1}>
+          <Col xs={1} lg={1}>
             <a href="http://www.ca.gov"><img src={ca_gov_logo}/></a>
           </Col>
-          <Col xs={5}>
-            <Col xs={12}>
+          <Col xs={8} lg={5}>
+            <Col lg={12}>
               <a href="http://www.cio.ca.gov">
                 <img className="col-xs-2 cio-logo" src={cio_logo}/>
                 <span className="cio-logo-text1 col-xs-10">California</span>
                 <span className="cio-logo-text2 col-xs-10">Department of Technology</span>
               </a>
             </Col>
-            <Col xs={12} className="header-title">
+            <Col lg={12} className="header-title">
               <span>Employee Directory</span>
             </Col>
           </Col>
-          <Col xs={6} className="header-links">
-            <Col xs={2} xsOffset={6}>
+          <Col xs={3} lg={6} className="header-links">
+            <Col lg={2} lgOffset={6}>
               <IndexLink to="/" activeClassName="active"><Button className="btn-outline">Search</Button></IndexLink>
             </Col>
-            <Col xs={2}>
+            <Col lg={2}>
               <Button className="btn-outline" onClick={this.ConvertToExcelHandleClick}>Export</Button>
             </Col>
-            <Col xs={2}>
+            <Col lg={2}>
               <Link to="/about" activeClassName="active"><Button className="btn-outline">About</Button></Link>
             </Col>
           </Col>

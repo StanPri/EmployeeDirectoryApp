@@ -11,9 +11,9 @@ function ManagerDetail(props) {
   return (
     <Table bordered condensed className={Object.keys(props.employee).length ? '' : 'hidden'}>
       <thead>
-        <tr className="table-header">
+        <tr>
           <th colSpan="2">
-            <h4>Manager</h4>
+            Manager
           </th>
         </tr>
       </thead>

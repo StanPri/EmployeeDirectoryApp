@@ -1,5 +1,10 @@
 body {
-  margin-top: @navbar-height + 15px;
+  margin-top: @navbar-height + @grid-gutter-width;
+}
+@media (min-width: @screen-lg-min) {
+  body {
+    margin-top: @navbar-height + @grid-gutter-width / 2;
+  }
 }
 
 .navbar-fixed-top {
@@ -11,7 +16,9 @@ body {
   }
 
   .header-links {
-    margin-top: 45px;
+    @media (min-width: @screen-lg-min) {
+      margin-top: 45px;
+    }
 
     .btn.btn-outline {
       background-color: transparent;

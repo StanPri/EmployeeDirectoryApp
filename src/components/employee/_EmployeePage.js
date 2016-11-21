@@ -116,10 +116,8 @@ class EmployeePage extends React.Component {
               EmployeePageNumbersOnSelect={this.EmployeePageNumbersHandleSelect}
               numPerPage={this.state.numPerPage}/>
           </Col>
-          <Col xs={12} lg={6}>
+          <Col xs={12} lg={6} className="right-column">
             <EmployeeDetail employee={this.state.employee}/>
-          </Col>
-          <Col xs={11} lg={5}>
             <EmployeeManagerDetail
               employee={this.state.employee}
               manager={this.state.manager}
