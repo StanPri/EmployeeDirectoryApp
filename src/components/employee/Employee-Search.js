@@ -7,7 +7,7 @@ Search.propTypes = {
 
 function Search(props) {
   return (
-    <Form horizontal className="employee-search">
+    <Form horizontal className="employee-search" onSubmit={(e) => {e.preventDefault();}}>
       <FormGroup>
         <InputGroup bsSize="lg">
           <FormControl type="text" placeholder="Search" onChange={props.EmployeeSearchOnChange}/>
