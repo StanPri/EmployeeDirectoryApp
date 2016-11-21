@@ -26,7 +26,7 @@ class Header extends React.Component {
       "cellPhone", "faxNumber", "employeeNumber", "reportingUnit", "campus", "deskLocation",
       "mailStop", "manager"
     ];
-    let csv = json2csv({data:this.state.employeeData, fields: fields});
+    let csv = json2csv({data:this.state.employees, fields: fields});
     if (!csv.match(/^data:text\/csv/i)) {
       csv = 'data:text/csv;charset=utf-8,' + csv;
     }

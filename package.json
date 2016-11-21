@@ -21,11 +21,12 @@
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "*",
-    "json2csv": "^3.7.1",
+    "json2csv": "*",
     "react": "*",
     "react-bootstrap": "*",
     "react-dom": "*",
-    "react-router": "*"
+    "react-router": "*",
+    "whatwg-fetch": "*"
   },
   "devDependencies": {
     "babel-cli": "*",

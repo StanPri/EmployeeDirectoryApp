@@ -132,9 +132,9 @@ function sortByKey(array, key) {
 }
 
 function removeActive() {
-  document.querySelectorAll('[data-employee]').forEach((e) => {
-    e.classList.remove('active');
-  });
+  let e = document.querySelectorAll('[data-employee]');
+  for (let i = 0, len = e.length; i < len; i++) {
+      e[i].classList.remove('active'); }
 }
 
 EmployeePage.propTypes = {};
