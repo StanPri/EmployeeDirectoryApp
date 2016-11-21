@@ -21,12 +21,14 @@ function EmployeeDetail(props) {
     'mailStop': 'Mail Stop'
   };
   return (
-    <Table bordered condensed className={Object.keys(props.employee).length ? '' : 'hidden'}>
+    <Table bordered condensed className={Object.keys(props.employee).length
+      ? ''
+      : 'hidden'}>
       <thead>
         <tr className="table-header">
           <th colSpan="2">
             <h2 className="pull-left">{props.employee.fullName}</h2>
-            <Button className="pull-right" bsSize="large">Print</Button>
+            <Button className="pull-right no-print" bsSize="large" onClick={window.print}>Print</Button>
           </th>
         </tr>
       </thead>
@@ -37,12 +39,13 @@ function EmployeeDetail(props) {
               <td className="col-xs-3">{fields[key]}</td>
               <td className="col-xs-9">
                 {props.employee[key]
-                  ? key==='email'
-                  ? <a href={"mailto:" + props.employee.email}>{props.employee.email}</a>
-                  : props.employee[key]
+                  ? key === 'email'
+                    ? <a href={"mailto:" + props.employee.email}>{props.employee.email}</a>
+                    : props.employee[key]
                   : '(Not Available)'}
               </td>
-            </tr>);
+            </tr>
+          );
         })}
       </tbody>
     </Table>

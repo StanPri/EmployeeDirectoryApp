@@ -98,12 +98,12 @@ class EmployeePage extends React.Component {
     return (
       <Grid fluid>
         <Row>
-          <Col xs={6} xsOffset={3}>
+          <Col xs={6} xsOffset={3} className="no-print">
             <EmployeeSearch EmployeeSearchOnChange={this.EmployeeSearchHandleChange}/>
           </Col>
         </Row>
         <Row>
-          <Col xs={12} lg={6} className="left-column">
+          <Col xs={12} lg={6} className="left-column no-print">
             <EmployeeList employees={this.state.employees} numberOfPages={this.state.numberOfPages}
               currentPage={this.state.currentPage} EmployeeListOnClick={this.EmployeeListHandleClick}
               EmployeePageNumbersOnSelect={this.EmployeePageNumbersHandleSelect}
