@@ -22,6 +22,7 @@ class EmployeePage extends React.Component {
     this.EmployeeListHandleClick = this.EmployeeListHandleClick.bind(this);
     this.EmployeePageNumbersHandleSelect = this.EmployeePageNumbersHandleSelect.bind(this);
     this.EmployeeManagerDetailHandleClick = this.EmployeeManagerDetailHandleClick.bind(this);
+    this.EmployeeSearchIgnoreEnterHandle = this.EmployeeSearchIgnoreEnterHandle.bind(this);
   }
 
   componentDidMount() {
@@ -94,12 +95,18 @@ class EmployeePage extends React.Component {
     removeActive();
   }
 
+  EmployeeSearchIgnoreEnterHandle(e)
+  {
+    e.preventDefault();
+  }
+
   render() {
     return (
       <Grid fluid>
         <Row>
           <Col xs={6} xsOffset={3} className="no-print">
-            <EmployeeSearch EmployeeSearchOnChange={this.EmployeeSearchHandleChange}/>
+            <EmployeeSearch EmployeeSearchOnChange={this.EmployeeSearchHandleChange}
+              EmployeeSearchIgnoreEnterOnSubmit={this.EmployeeSearchIgnoreEnterHandle}/>
           </Col>
         </Row>
         <Row>
