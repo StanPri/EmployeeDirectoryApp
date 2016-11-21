@@ -27,38 +27,22 @@ class Header extends React.Component {
       });
   }
 
-  ConvertToExcelHandleClick(){
+  ConvertToExcelHandleClick() {
     let fields = [
-      "group",
-      "email",
-      "employeeNumber",
-      "reportingUnit",
-      "faxNumber",
-      "firstName",
-      "cellPhone",
-      "campus",
-      "deskPhone",
-      "mailStop",
-      "lastName",
-      "classification",
-      "deskLocation",
-      "manager",
-      "fullName"
+      "firstName", "lastName", "fullName", "group", "classification", "deskPhone", "email",
+      "cellPhone", "faxNumber", "employeeNumber", "reportingUnit", "campus", "deskLocation",
+      "mailStop", "manager"
     ];
-
     let csv = json2csv({data:this.state.employeeData, fields: fields});
     if (!csv.match(/^data:text\/csv/i)) {
-            csv = 'data:text/csv;charset=utf-8,' + csv;
+      csv = 'data:text/csv;charset=utf-8,' + csv;
     }
     let encodedUri = encodeURI(csv);
     let link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", "EmployeeDirectory.csv");
     link.click();
-
-
   }
-
 
   render() {
     return (
@@ -81,13 +65,13 @@ class Header extends React.Component {
           </Col>
           <Col xs={6} className="header-links">
             <Col xs={2} xsOffset={6}>
-              <IndexLink to="/" activeClassName="active"><Button className="btn-outline">Home</Button></IndexLink>
+              <IndexLink to="/" activeClassName="active"><Button className="btn-outline">Search</Button></IndexLink>
+            </Col>
+            <Col xs={2}>
+              <Button className="btn-outline" onClick={this.ConvertToExcelHandleClick}>Export</Button>
             </Col>
             <Col xs={2}>
               <Link to="/about" activeClassName="active"><Button className="btn-outline">About</Button></Link>
-            </Col>
-            <Col xs={2}>
-              <Button className="btn-outline" onClick={this.ConvertToExcelHandleClick}>CSV Export</Button>
             </Col>
           </Col>
         </Row>
