@@ -14,20 +14,13 @@ class Header extends React.Component {
     this.ConvertToExcelHandleClick = this.ConvertToExcelHandleClick.bind(this);
   }
 
-  componentDidMount() {
+  ConvertToExcelHandleClick() {
     fetch('http://EDAPI/employees')
       .then(response => response.json())
       .then(json => {
         json = sortByKey(json, 'lastName');
-        this.setState({
-          employees: json,
-          employeeData: json,
-          numberOfPages: Math.ceil(json.length / this.state.numPerPage)
-        });
+        this.setState({ employees: json });
       });
-  }
-
-  ConvertToExcelHandleClick() {
     let fields = [
       "firstName", "lastName", "fullName", "group", "classification", "deskPhone", "email",
       "cellPhone", "faxNumber", "employeeNumber", "reportingUnit", "campus", "deskLocation",
