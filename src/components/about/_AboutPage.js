@@ -17,7 +17,7 @@ class AboutPage extends React.Component {
                  --> Business Process Automation Sprt group.
               </p>
 
-              <hr></hr>
+              <hr/>
 
               <h1>Disclaimer</h1>
               <p>
