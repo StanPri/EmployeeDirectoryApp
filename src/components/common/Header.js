@@ -15,36 +15,45 @@ class Header extends React.Component {
   }
 
   ConvertToExcelHandleClick() {
+    //Do the Fetch call
     fetch('http://EDAPI/employees').then(response => response.json()).then(json => {
+      //Export file only after fetch call is done
       json = sortByKey(json, 'lastName');
-      this.setState({employees: json});
+      let fields = [
+        "firstName",
+        "lastName",
+        "fullName",
+        "group",
+        "classification",
+        "deskPhone",
+        "email",
+        "cellPhone",
+        "faxNumber",
+        "employeeNumber",
+        "reportingUnit",
+        "campus",
+        "deskLocation",
+        "mailStop",
+        "manager"
+      ];
+      let csv = json2csv({data: json, fields: fields});
+      let blob = new Blob([csv], {type: 'data:text/csv;charset=utf-8;'});
+      if (navigator.msSaveBlob) {
+        //Internet Explorer csv export
+        navigator.msSaveBlob(blob, "EmployeeDirectory.csv");
+      } else {
+        //Non-Internet Explorer csv export
+        let link = document.createElement("a");
+        if (link.download !== undefined) {
+          let url = URL.createObjectURL(blob);
+          link.setAttribute("href", url);
+          link.setAttribute("download", "EmployeeDirectory.csv");
+          document.body.appendChild(link); //Required for Firefox browsers
+          link.click();
+          document.body.removeChild(link);
+        }
+      }
     });
-    let fields = [
-      "firstName",
-      "lastName",
-      "fullName",
-      "group",
-      "classification",
-      "deskPhone",
-      "email",
-      "cellPhone",
-      "faxNumber",
-      "employeeNumber",
-      "reportingUnit",
-      "campus",
-      "deskLocation",
-      "mailStop",
-      "manager"
-    ];
-    let csv = json2csv({data: this.state.employees, fields: fields});
-    if (!csv.match(/^data:text\/csv/i)) {
-      csv = 'data:text/csv;charset=utf-8,' + csv;
-    }
-    let encodedUri = encodeURI(csv);
-    let link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "EmployeeDirectory.csv");
-    link.click();
   }
 
   render() {
