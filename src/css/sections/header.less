@@ -1,57 +1,138 @@
 body {
-  margin-top: @navbar-height + @grid-gutter-width;
-}
-@media (min-width: @screen-lg-min) {
-  body {
-    margin-top: @navbar-height + @grid-gutter-width / 2;
+  margin-top: floor(@navbar-height / 2) + floor(@grid-gutter-width / 2);
+  @media (min-width: @screen-md-min) {
+      margin-top: floor(@navbar-height / 2) + floor(@grid-gutter-width / 2) + 10px;
   }
+  @media (min-width: @screen-lg-min) {
+      margin-top: @navbar-height + floor(@grid-gutter-width / 2);
+  }
+}
+//
+// Navs
+// --------------------------------------------------
+// Base class
+// --------------------------------------------------
+
+.nav {
+  margin-bottom: floor(@grid-gutter-width / 2);
+  @media (min-width: @screen-lg-min) {
+    margin-bottom: 0;
+  }
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  &:extend(.clearfix all);
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: @nav-link-padding 0;
+
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: @nav-link-hover-bg;
+      }
+    }
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: @nav-disabled-link-color;
+
+      &:focus,
+      &:hover {
+        color: @nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: @cursor-disabled;
+      }
+    }
+  }
+}
+
+.navbar-toggle {
+  margin-top: floor(@grid-gutter-width / 4);
+  margin-bottom: floor(@grid-gutter-width / 4);
+
 }
 
 .navbar-fixed-top {
   background-color: @brand-primary;
   border-bottom: 3px solid #fbad23;
-
-  .container > .row {
-    margin-top: 10px;
+  min-height: floor(@navbar-height / 2);
+  @media (min-width: @screen-lg-min) {
+    min-height: @navbar-height;
   }
 
-  .header-links {
+  .btn.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all 0.5s;
+    color: #fff;
+    border-color: rgba(0,0,0,0);
+
+    &:hover {
+      background: rgba(0,0,0,.15);
+      border-color: rgba(255,255,255,.3);
+    }
+  }
+
+  .navbar-right {
+    margin-top: 0;
     @media (min-width: @screen-lg-min) {
-      margin-top: 45px;
+      margin-top: @grid-gutter-width * 1.8;
+    }
+  }
+
+  .header-cio-logo {
+    width: auto;
+    @media (min-width: @screen-lg-min) {
+      width: 280px;
+    }
+    display: block;
+    float: left;
+    margin-top: 5px;
+
+    img {
+      height: floor(@header-ca-logo-height / 2) - 5px;
+      @media (min-width: @screen-lg-min) {
+        height: @header-cio-logo-height;
+      }
+      width: auto;
+      margin: 0 floor(@grid-gutter-width / 2);
+      float: left;
     }
 
-    .btn.btn-outline {
-      background-color: transparent;
-      color: inherit;
-      transition: all 0.5s;
+    h1 {
+      font-size: 1.9em;
       color: #fff;
-      border-color: rgba(0,0,0,0);
-
-      &:hover {
-        background: rgba(0,0,0,.15);
-        border-color: rgba(255,255,255,.3);
+      margin-top: 5px;
+      margin-left: 20px;
+      margin-bottom: 5px;
+      float: left;
+      display: none;
+      @media (min-width: @screen-lg-min) {
+        display: block;
       }
     }
   }
 
-  .header-title {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #fff;
-    margin-left: 20px;
+  .header-ca-logo {
+    height: floor(@header-ca-logo-height / 2);
+    @media (min-width: @screen-lg-min) {
+      height: @header-ca-logo-height;
+    }
+    width: auto;
+    margin: floor((@navbar-height - @header-ca-logo-height) / 2);
+    float: left;
   }
+}
 
-  .cio-logo-text1 {
-    color: lighten(@brand-primary, 50%);
-    margin-left: -13px;
-    margin-top: 5px;
-    margin-bottom: -8px;
-  }
-
-  .cio-logo-text2 {
-    color: #fff;
-    font-variant: small-caps;
-    font-size: 1.3em;
-    margin-left: -25px;
-  }
+#navbar-toggle-cbox, #navbar {
+    display:none;
+}
+#navbar-toggle-cbox:checked ~ #navbar {
+    display: block;
 }

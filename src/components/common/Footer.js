@@ -7,8 +7,8 @@ Footer.propTypes = {};
 function Footer(props) {
   return (
     <Navbar className="navbar-static-bottom">
-    <Link to="/about" activeClassName="active">Contact Us</Link>
-    <span className="clearfix">Copyright &copy; 2016 State of California</span>
+    <Link to="/about" activeClassName="active" className="col-xs-12 text-center">Contact Us</Link>
+    <span className="col-xs-12 text-center">Copyright &copy; 2016 State of California</span>
     </Navbar>
   );
 }
