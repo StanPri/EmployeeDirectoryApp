@@ -32,13 +32,6 @@ class Header extends React.Component {
 
         let csv = json2csv({data:json, fields: fields});
 
-
-        //CSV format for non-IE browsers
-        if (!csv.match(/^data:text\/csv/i)) {
-          csv = 'data:text/csv;charset=utf-8,' + csv;
-        }
-
-
         let blob = new Blob([csv], {type: 'data:text/csv;charset=utf-8;'});
         if (navigator.msSaveBlob) {
           //Internet Explorer csv export
