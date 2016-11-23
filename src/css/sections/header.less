@@ -122,20 +122,23 @@ body {
   }
 
   .header-title {
+    pointer-events: none;
+    height: 0;
     color: #fff;
     position: absolute;
     width: 100%;
     left: 0;
     text-align: center;
     margin: auto;
-    padding-top: floor(1.8 * @header-padding);
+    padding: 0;
+    margin-top: floor(1.8 * @header-padding);
     font-size: 1.7em;
     display: none;
     @media (min-width: @screen-sm-min) {
       display: block;
     }
     @media (min-width: @screen-lg-min) {
-      padding-top: floor(3.5 * @header-padding);
+      margin-top: floor(3.5 * @header-padding);
       font-size: 2em;
     }
   }
