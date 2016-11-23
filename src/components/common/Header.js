@@ -14,7 +14,8 @@ class Header extends React.Component {
     this.ConvertToExcelHandleClick = this.ConvertToExcelHandleClick.bind(this);
   }
 
-  ConvertToExcelHandleClick() {
+  ConvertToExcelHandleClick(e) {
+    toggleMenuOnClick(e);
     //Do the Fetch call
     fetch('http://EDAPI/employees').then(response => response.json()).then(json => {
       //Export file only after fetch call is done
@@ -59,25 +60,23 @@ class Header extends React.Component {
   render() {
     return (
       <Navbar fixedTop fluid>
-        <input type="checkbox" id="navbar-toggle-cbox"/>
+        <input type="checkbox" id="navbar-toggle-cbox" className="hidden"/>
         <div className="navbar-header">
-          <label htmlFor="navbar-toggle-cbox" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <label htmlFor="navbar-toggle-cbox" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" onClick={toggleMenuOnClick}>
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar"/>
             <span className="icon-bar"/>
             <span className="icon-bar"/>
           </label>
           <a href="http://www.ca.gov"><img className="header-ca-logo" src={ca_gov_logo}/></a>
-          <a href="http://www.cio.ca.gov" className="header-cio-logo">
-            <img src={cio_logo}/>
-            <h1>Employee Directory</h1>
-          </a>
+          <a href="http://www.cio.ca.gov" className="header-cio-logo"><img src={cio_logo}/></a>
+          <h1 className="header-title">Employee Directory</h1>
         </div>
-        <div className="navbar-collapse collapse" id="navbar">
+        <div className="navbar-collapse collapse hidden" id="navbar">
           <ul className="nav navbar-nav navbar-right">
             <li>
               <IndexLink to="/" activeClassName="active">
-                <Button className="btn-outline">Search</Button>
+                <Button className="btn-outline" onClick={toggleMenuOnClick}>Search</Button>
               </IndexLink>
             </li>
             <li>
@@ -87,7 +86,7 @@ class Header extends React.Component {
             </li>
             <li>
               <Link to="/about" activeClassName="active">
-                <Button className="btn-outline">About</Button>
+                <Button className="btn-outline" onClick={toggleMenuOnClick}>About</Button>
               </Link>
             </li>
           </ul>
@@ -95,6 +94,10 @@ class Header extends React.Component {
       </Navbar>
     );
   }
+}
+
+function toggleMenuOnClick(e) {
+  document.getElementById('navbar').classList.toggle('hidden');
 }
 
 function sortByKey(array, key) {

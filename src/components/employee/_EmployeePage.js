@@ -14,7 +14,6 @@ class EmployeePage extends React.Component {
       numberOfPages: 0,
       currentPage: 0,
       numPerPage: 16,
-      filter: '',
       employee: {},
       manager: {}
     };

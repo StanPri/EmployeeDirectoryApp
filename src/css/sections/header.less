@@ -1,5 +1,5 @@
 body {
-  margin-top: floor(@navbar-height / 2) + floor(@grid-gutter-width / 2);
+  margin-top: floor(@navbar-height / 1.5) + floor(@grid-gutter-width / 2);
   @media (min-width: @screen-md-min) {
     margin-top: floor(@navbar-height / 2) + floor(@grid-gutter-width / 2) + 10px;
   }
@@ -81,11 +81,8 @@ body {
 
   .navbar-right {
     margin-top: 0;
-    @media (min-width: @screen-sm-min) {
-      margin-top: 10px;
-    }
     @media (min-width: @screen-lg-min) {
-      margin-top: @grid-gutter-width * 1.8;
+      margin-top: 4 * @header-padding;
     }
   }
 
@@ -96,11 +93,11 @@ body {
     }
     display: block;
     float: left;
-    margin-top: 5px;
+    margin: @header-padding;
 
     img {
       width: auto;
-      height: floor(@header-ca-logo-height / 2);
+      height: floor(@header-ca-logo-height / 1.5);
       margin: 0;
       @media (min-width: @screen-lg-min) {
         height: @header-cio-logo-height;
@@ -108,50 +105,46 @@ body {
       }
       float: left;
     }
-
-    h1 {
-      color: #fff;
-      margin-left: 10px;
-      margin-top: 20px;
-      font-size: 1.4em;
-      margin-bottom: 5px;
-      float: left;
-      display: none;
-      @media (min-width: @screen-sm-min) {
-        display: block;
-      }
-      @media (min-width: @screen-md-min) {
-        margin-top: 15px;
-        margin-left: 15px;
-        font-size: 1.7em;
-      }
-      @media (min-width: @screen-lg-min) {
-        margin-top: 5px;
-        margin-left: 20px;
-        font-size: 1.9em;
-      }
-    }
   }
 
   .header-ca-logo {
-    height: floor(@header-ca-logo-height / 2);
+    height: floor(@header-ca-logo-height / 1.5);
     @media (min-width: @screen-lg-min) {
       height: @header-ca-logo-height;
     }
     width: auto;
-    margin: floor((@navbar-height - @header-ca-logo-height) / 2);
+    margin: @header-padding;
     float: left;
+  }
+
+  .header-title {
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+    padding-top: 2 * @header-padding;
+    font-size: 1.7em;
+    display: none;
+    @media (min-width: @screen-sm-min) {
+      display: block;
+    }
+    @media (min-width: @screen-md-min) {
+      padding-top: 3 * @header-padding;
+      font-size: 1.7em;
+    }
+    @media (min-width: @screen-lg-min) {
+      padding-top: 6 * @header-padding;
+      font-size: 2em;
+    }
   }
 }
 
-#navbar,
-#navbar-toggle-cbox {
-  display: none;
-}
-
+/*
 #navbar-toggle-cbox:checked ~ #navbar {
   display: block;
-}
+}*/
 
 .navbar-default .navbar-toggle {
   cursor: pointer;
