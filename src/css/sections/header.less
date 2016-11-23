@@ -29,12 +29,15 @@ body {
     > a {
       position: relative;
       display: block;
-      padding: @nav-link-padding 0;
+      padding: @header-padding @header-padding 0;
 
       &:focus,
       &:hover {
         text-decoration: none;
         background-color: @nav-link-hover-bg;
+      }
+      .btn {
+        padding: @header-padding (2*@header-padding);
       }
     }
     // Disabled state sets text to gray and nukes hover/tab effects
@@ -80,9 +83,10 @@ body {
   }
 
   .navbar-right {
-    margin-top: 0;
+    margin-top: floor(@header-padding / 2);
+    margin-right: floor(@grid-gutter-width / 2);
     @media (min-width: @screen-lg-min) {
-      margin-top: 4 * @header-padding;
+      margin-top: floor(5 * @header-padding);
     }
   }
 
@@ -124,18 +128,14 @@ body {
     left: 0;
     text-align: center;
     margin: auto;
-    padding-top: 2 * @header-padding;
+    padding-top: floor(1.8 * @header-padding);
     font-size: 1.7em;
     display: none;
     @media (min-width: @screen-sm-min) {
       display: block;
     }
-    @media (min-width: @screen-md-min) {
-      padding-top: 3 * @header-padding;
-      font-size: 1.7em;
-    }
     @media (min-width: @screen-lg-min) {
-      padding-top: 6 * @header-padding;
+      padding-top: floor(3.5 * @header-padding);
       font-size: 2em;
     }
   }
