@@ -1,10 +1,10 @@
 body {
   margin-top: floor(@navbar-height / 2) + floor(@grid-gutter-width / 2);
   @media (min-width: @screen-md-min) {
-      margin-top: floor(@navbar-height / 2) + floor(@grid-gutter-width / 2) + 10px;
+    margin-top: floor(@navbar-height / 2) + floor(@grid-gutter-width / 2) + 10px;
   }
   @media (min-width: @screen-lg-min) {
-      margin-top: @navbar-height + floor(@grid-gutter-width / 2);
+    margin-top: @navbar-height + floor(@grid-gutter-width / 2);
   }
 }
 //
@@ -15,7 +15,7 @@ body {
 
 .nav {
   margin-bottom: floor(@grid-gutter-width / 2);
-  @media (min-width: @screen-lg-min) {
+  @media (min-width: @screen-sm-min) {
     margin-bottom: 0;
   }
   padding-left: 0; // Override default ul/ol
@@ -55,12 +55,12 @@ body {
 .navbar-toggle {
   margin-top: floor(@grid-gutter-width / 4);
   margin-bottom: floor(@grid-gutter-width / 4);
-
 }
 
 .navbar-fixed-top {
   background-color: @brand-primary;
   border-bottom: 3px solid #fbad23;
+  min-width: 360px;
   min-height: floor(@navbar-height / 2);
   @media (min-width: @screen-lg-min) {
     min-height: @navbar-height;
@@ -81,6 +81,9 @@ body {
 
   .navbar-right {
     margin-top: 0;
+    @media (min-width: @screen-sm-min) {
+      margin-top: 10px;
+    }
     @media (min-width: @screen-lg-min) {
       margin-top: @grid-gutter-width * 1.8;
     }
@@ -96,25 +99,36 @@ body {
     margin-top: 5px;
 
     img {
-      height: floor(@header-ca-logo-height / 2) - 5px;
+      width: auto;
+      height: floor(@header-ca-logo-height / 2);
+      margin: 0;
       @media (min-width: @screen-lg-min) {
         height: @header-cio-logo-height;
+        margin: 0 floor(@grid-gutter-width / 2);
       }
-      width: auto;
-      margin: 0 floor(@grid-gutter-width / 2);
       float: left;
     }
 
     h1 {
-      font-size: 1.9em;
       color: #fff;
-      margin-top: 5px;
-      margin-left: 20px;
+      margin-left: 10px;
+      margin-top: 20px;
+      font-size: 1.4em;
       margin-bottom: 5px;
       float: left;
       display: none;
-      @media (min-width: @screen-lg-min) {
+      @media (min-width: @screen-sm-min) {
         display: block;
+      }
+      @media (min-width: @screen-md-min) {
+        margin-top: 15px;
+        margin-left: 15px;
+        font-size: 1.7em;
+      }
+      @media (min-width: @screen-lg-min) {
+        margin-top: 5px;
+        margin-left: 20px;
+        font-size: 1.9em;
       }
     }
   }
@@ -130,9 +144,23 @@ body {
   }
 }
 
-#navbar-toggle-cbox, #navbar {
-    display:none;
+#navbar,
+#navbar-toggle-cbox {
+  display: none;
 }
+
 #navbar-toggle-cbox:checked ~ #navbar {
-    display: block;
+  display: block;
+}
+
+.navbar-default .navbar-toggle {
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(0,0,0,.15);
+  }
+
+  .icon-bar {
+    background: #fff;
+  }
 }
