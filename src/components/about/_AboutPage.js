@@ -6,14 +6,14 @@ class AboutPage extends React.Component {
     return (
       <Grid fluid>
         <Row>
-          <Col sm={6} xs={12} smOffset={3}>
-            <div className="col-xs-12 col-lg-10 col-lg-offset-1">
+          <Col xs={8} xsOffset={2} lg={6} lgOffset={3}>
+            <div>
               <h2>About</h2>
               <p>
                  The Employee Directory application displays data located in PeopleSoft,
                  Remedy, and Active Directory. This application is maintained by the
-                 <a href="http://ishare/team/BPAS/default.aspx"> Business Process
-                 Automation unit (BPAS)</a>, but the data is maintained by other units.
+                 Business Process Automation unit (BPAS), but the data is maintained
+                 by other units.
               </p>
               <p>
                  If you are having trouble using this application, or want to know the
