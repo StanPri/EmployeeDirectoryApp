@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Link, IndexLink} from 'react-router';
-import {Navbar, Row, Col, Button} from 'react-bootstrap';
+import {Navbar, Button} from 'react-bootstrap';
 import json2csv from 'json2csv';
 const ca_gov_logo = require('../../images/ca_gov_logo.png');
 const cio_logo = require('../../images/cio_logo.png');
@@ -15,7 +15,6 @@ class Header extends React.Component {
   }
 
   ConvertToExcelHandleClick(e) {
-    toggleMenuOnClick(e);
     //Do the Fetch call
     fetch('http://EDAPI/employees').then(response => response.json()).then(json => {
       //Export file only after fetch call is done
@@ -74,29 +73,31 @@ class Header extends React.Component {
         </div>
         <div className="navbar-collapse collapse hidden" id="navbar">
           <ul className="nav navbar-nav navbar-right">
-            <li>
+            <li onClick={toggleMenuOnClick}>
               <IndexLink to="/" activeClassName="active">
-                <Button className="btn-outline" onClick={toggleMenuOnClick}>Search</Button>
+                <Button className="btn-outline">Search</Button>
               </IndexLink>
             </li>
-            <li>
+            <li onClick={toggleMenuOnClick}>
               <a href="#">
                 <Button className="btn-outline" onClick={this.ConvertToExcelHandleClick}>Export</Button>
               </a>
             </li>
-            <li>
+            <li onClick={toggleMenuOnClick}>
               <Link to="/about" activeClassName="active">
-                <Button className="btn-outline" onClick={toggleMenuOnClick}>About</Button>
+                <Button className="btn-outline">About</Button>
               </Link>
             </li>
           </ul>
         </div>
+        <div id="navbar-overlay" className="hidden" onClick={toggleMenuOnClick}></div>
       </Navbar>
     );
   }
 }
 
 function toggleMenuOnClick(e) {
+  document.getElementById('navbar-overlay').classList.toggle('hidden');
   document.getElementById('navbar').classList.toggle('hidden');
 }
 

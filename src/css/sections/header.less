@@ -18,6 +18,8 @@ body {
   @media (min-width: @screen-sm-min) {
     margin-bottom: 0;
   }
+  margin-left: 0;
+  margin-right: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
   &:extend(.clearfix all);
@@ -37,7 +39,10 @@ body {
         background-color: @nav-link-hover-bg;
       }
       .btn {
-        padding: @header-padding (2*@header-padding);
+        padding: 2 * @header-padding;
+        @media (min-width: @screen-sm-min) {
+          padding: @header-padding (2*@header-padding);
+        }
       }
     }
     // Disabled state sets text to gray and nukes hover/tab effects
@@ -70,12 +75,15 @@ body {
   }
 
   .btn.btn-outline {
+    box-sizing: border-box;
     background-color: transparent;
     color: inherit;
     transition: all 0.5s;
     color: #fff;
     border-color: rgba(0,0,0,0);
-
+    margin: auto;
+    display: block;
+    width:100%;
     &:hover {
       background: rgba(0,0,0,.15);
       border-color: rgba(255,255,255,.3);
@@ -83,8 +91,8 @@ body {
   }
 
   .navbar-right {
+    margin-right: 0;
     margin-top: floor(@header-padding / 2);
-    margin-right: floor(@grid-gutter-width / 2);
     @media (min-width: @screen-lg-min) {
       margin-top: floor(5 * @header-padding);
     }
@@ -144,11 +152,6 @@ body {
   }
 }
 
-/*
-#navbar-toggle-cbox:checked ~ #navbar {
-  display: block;
-}*/
-
 .navbar-default .navbar-toggle {
   cursor: pointer;
 
@@ -158,5 +161,19 @@ body {
 
   .icon-bar {
     background: #fff;
+  }
+}
+
+#navbar-overlay {
+  z-index: -1;
+  opacity:0.2;
+  background-color:#666;
+  position:fixed;
+  width:100%;
+  height:100%;
+  left:0px;
+  display:block;
+  @media (min-width: @screen-sm-min) {
+    display:none;
   }
 }
