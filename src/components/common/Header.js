@@ -63,9 +63,9 @@ class Header extends React.Component {
         <div className="navbar-header">
           <label htmlFor="navbar-toggle-cbox" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
+            <span className="icon-bar"/>
+            <span className="icon-bar"/>
+            <span className="icon-bar"/>
           </label>
           <a href="http://www.ca.gov"><img className="header-ca-logo" src={ca_gov_logo}/></a>
           <a href="http://www.cio.ca.gov" className="header-cio-logo">
