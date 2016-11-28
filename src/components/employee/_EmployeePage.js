@@ -21,7 +21,7 @@ class EmployeePage extends React.Component {
     this.EmployeeListHandleClick = this.EmployeeListHandleClick.bind(this);
     this.EmployeePageNumbersHandleSelect = this.EmployeePageNumbersHandleSelect.bind(this);
     this.EmployeeManagerDetailHandleClick = this.EmployeeManagerDetailHandleClick.bind(this);
-    this.EmployeeSearchIgnoreEnterHandle = this.EmployeeSearchIgnoreEnterHandle.bind(this);
+    this.EmployeeSearchHandleSubmit = this.EmployeeSearchHandleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -94,8 +94,7 @@ class EmployeePage extends React.Component {
     removeActive();
   }
 
-  EmployeeSearchIgnoreEnterHandle(e)
-  {
+  EmployeeSearchHandleSubmit(e) {
     e.preventDefault();
   }
 
@@ -103,19 +102,19 @@ class EmployeePage extends React.Component {
     return (
       <Grid fluid>
         <Row>
-          <Col xs={10} xsOffset={1} lg={6} lgOffset={3} className="no-print">
+          <Col xs={10} xsOffset={1} md={6} mdOffset={3} className="no-print">
             <EmployeeSearch EmployeeSearchOnChange={this.EmployeeSearchHandleChange}
-              EmployeeSearchIgnoreEnterOnSubmit={this.EmployeeSearchIgnoreEnterHandle}/>
+              EmployeeSearchOnSubmit={this.EmployeeSearchHandleSubmit}/>
           </Col>
         </Row>
         <Row>
-          <Col xs={12} lg={6} className="left-column no-print">
+          <Col xs={12} md={6} className="left-column no-print">
             <EmployeeList employees={this.state.employees} numberOfPages={this.state.numberOfPages}
               currentPage={this.state.currentPage} EmployeeListOnClick={this.EmployeeListHandleClick}
               EmployeePageNumbersOnSelect={this.EmployeePageNumbersHandleSelect}
               numPerPage={this.state.numPerPage}/>
           </Col>
-          <Col xs={12} lg={6} className="right-column">
+          <Col xs={12} md={6} className="right-column">
             <EmployeeDetail employee={this.state.employee}/>
             <EmployeeManagerDetail
               employee={this.state.employee}
@@ -137,8 +136,8 @@ function sortByKey(array, key) {
 
 function removeActive() {
   let e = document.querySelectorAll('[data-employee]');
-  for (let i = 0, len = e.length; i < len; i++) {
-      e[i].classList.remove('active'); }
+  for (let i of e) {
+      i.classList.remove('active'); }
 }
 
 EmployeePage.propTypes = {};

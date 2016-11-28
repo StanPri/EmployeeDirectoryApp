@@ -3,13 +3,13 @@ import {Button, Form, FormControl, FormGroup, InputGroup} from 'react-bootstrap'
 
 Search.propTypes = {
   EmployeeSearchOnChange: PropTypes.func.isRequired,
-  EmployeeSearchIgnoreEnterOnSubmit: PropTypes.func.isRequired
+  EmployeeSearchOnSubmit: PropTypes.func.isRequired
 };
 
 function Search(props) {
 
   return (
-    <Form horizontal className="employee-search" onSubmit={props.EmployeeSearchIgnoreEnterOnSubmit}>
+    <Form horizontal className="employee-search" onSubmit={props.EmployeeSearchOnSubmit}>
       <FormGroup>
         <InputGroup>
           <FormControl type="text" placeholder="Search" onChange={props.EmployeeSearchOnChange}/>
