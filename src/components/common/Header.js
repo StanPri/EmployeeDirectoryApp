@@ -90,7 +90,7 @@ class Header extends React.Component {
             </li>
           </ul>
         </div>
-        <div id="navbar-overlay" className="hidden" onClick={toggleMenuOnClick}></div>
+        <div id="navbar-overlay" className="hidden" onClick={toggleMenuOnClick}/>
       </Navbar>
     );
   }
