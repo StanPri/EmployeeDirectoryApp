@@ -17,6 +17,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Windows misc
+*.xlsx
+
 # =========================
 # Operating System Files
 # =========================
@@ -56,3 +59,4 @@ dist/
 
 # Debug files
 npm-debug.*
+debug/
