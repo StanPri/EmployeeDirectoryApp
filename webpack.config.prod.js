@@ -7,7 +7,7 @@ const dist_path = build_type === 'P' ? 'prod' : 'test';
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
-  'process.env.VERSION' : JSON.stringify(`${build_type}.${new Date().toISOString("en-US").substring(2,10).replace(/-/g, '.')}`),
+  'process.env.VERSION' : JSON.stringify(`${build_type}.${new Date().toISOString("en-US").substring(0,10).replace(/-/g, '.')}`),
   'process.env.API_URL' : JSON.stringify(build_type === 'P' ? 'http://EDAPI/employees' : 'http://testEDAPI/employees')
 };
 
