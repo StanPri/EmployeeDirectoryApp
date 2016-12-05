@@ -16,7 +16,7 @@ class Header extends React.Component {
 
   ConvertToExcelHandleClick(e) {
     //Do the Fetch call
-    fetch('http://EDAPI/employees').then(response => response.json()).then(json => {
+    fetch(process.env.API_URL).then(response => response.json()).then(json => {
       //Export file only after fetch call is done
       json = sortByKey(json, 'lastName');
       let fields = [

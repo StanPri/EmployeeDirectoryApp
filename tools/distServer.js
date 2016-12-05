@@ -7,12 +7,13 @@ import compression from 'compression';
 
 const port = 3000;
 const app = express();
+const build_type = process.argv[2] === '--prod' ? 'prod' : 'test';
 
 app.use(compression());
-app.use(express.static('dist'));
+app.use(express.static(`dist/${build_type}`));
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
+  res.sendFile(path.join(__dirname, `../dist/${build_type}/index.html`));
 });
 
 app.listen(port, function(err) {

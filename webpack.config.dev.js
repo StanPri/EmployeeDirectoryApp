@@ -1,6 +1,12 @@
 import webpack from 'webpack';
 import path from 'path';
 
+const GLOBALS = {
+  'process.env.NODE_ENV': JSON.stringify('development'),
+  'process.env.VERSION' : JSON.stringify(`D.${new Date().toISOString("en-US").substring(2,10).replace(/-/g, '.')}`),
+  'process.env.API_URL' : JSON.stringify('http://testEDAPI/employees')
+};
+
 export default {
   debug: true,
   devtool: 'inline-source-map',
@@ -20,6 +26,7 @@ export default {
     contentBase: path.resolve(__dirname, 'src')
   },
   plugins: [
+    new webpack.DefinePlugin(GLOBALS),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],

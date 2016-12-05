@@ -25,7 +25,7 @@ class EmployeePage extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://EDAPI/employees')
+    fetch(process.env.API_URL)
       .then(response => response.json())
       .then(json => {
         json = sortByKey(json, 'lastName');

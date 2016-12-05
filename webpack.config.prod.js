@@ -2,8 +2,13 @@ import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
+const build_type = process.argv[2] === '--prod' ? 'P': 'T';
+const dist_path = build_type === 'P' ? 'prod' : 'test';
+
 const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('production')
+  'process.env.NODE_ENV': JSON.stringify('production'),
+  'process.env.VERSION' : JSON.stringify(`${build_type}.${new Date().toISOString("en-US").substring(2,10).replace(/-/g, '.')}`),
+  'process.env.API_URL' : JSON.stringify(build_type === 'P' ? 'http://EDAPI/employees' : 'http://testEDAPI/employees')
 };
 
 export default {
@@ -13,12 +18,12 @@ export default {
   entry: path.resolve(__dirname, 'src/index'),
   target: 'web',
   output: {
-    path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
+    path: path.resolve(__dirname, `dist/${dist_path}`), // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist')
+    contentBase: path.resolve(__dirname, `dist/${dist_path}`)
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),

@@ -9,7 +9,7 @@ function Footer(props) {
     <Navbar className="navbar-static-bottom">
     <Link to="/about" activeClassName="active" className="col-xs-12 text-center">Contact Us</Link>
     <span className="col-xs-12 text-center">Copyright &copy; 2016 State of California</span>
-    <span className="version">Version 11.23.16</span>
+    <span className="version">Version {process.env.VERSION}</span>
     </Navbar>
   );
 }
