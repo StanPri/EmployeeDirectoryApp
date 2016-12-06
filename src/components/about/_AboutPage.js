@@ -23,12 +23,12 @@ class AboutPage extends React.Component {
 
           <div>
             <Row>
-              <Col md={5} mdOffset={1}>
+              <Col xs={10} xsOffset={1}>
                 <h2>Help Using the Employee Directory</h2>
               </Col>
                 </Row>
             <Row>
-              <Col xs={10} md={5} mdOffset={1} className="left-column">
+              <Col xs={10} xsOffset={1} md={5} mdOffset={1} className="left-column">
                 <h3>How to view an employee's information</h3>
                 <ListGroup>
                   <ListGroupItem>
@@ -41,13 +41,13 @@ class AboutPage extends React.Component {
                   </ListGroupItem>
                 </ListGroup>
               </Col>
-              <Col xs={10} md={5} className="right-column">
+              <Col xs={10} xsOffset={1} md={5} mdOffset={0} className="right-column">
                 <Image className="help-fig" src={help_fig01} alt="" responsive />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={10} md={5} mdOffset={1} className="left-column">
+              <Col xs={10} xsOffset={1} md={5} mdOffset={1} className="left-column">
                 <h3>Additional Features</h3>
                 <ListGroup>
                   <ListGroupItem>
@@ -64,7 +64,7 @@ class AboutPage extends React.Component {
                   </ListGroupItem>
                 </ListGroup>
               </Col>
-              <Col xs={10} md={5} className="right-column">
+              <Col xs={10} xsOffset={1} md={5} mdOffset={0} className="right-column">
                 <Image className="help-fig" src={help_fig02} alt="" responsive />
               </Col>
             </Row>
