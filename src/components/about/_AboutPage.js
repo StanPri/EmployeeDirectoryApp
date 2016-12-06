@@ -29,7 +29,7 @@ class AboutPage extends React.Component {
                 </Row>
             <Row>
               <Col xs={10} xsOffset={1} md={5} mdOffset={1} className="left-column">
-                <h3>How to view an employee's information</h3>
+                <h3>How to view an employee&rsquo;s information</h3>
                 <ListGroup>
                   <ListGroupItem>
                     <h4>Step 1:</h4>
