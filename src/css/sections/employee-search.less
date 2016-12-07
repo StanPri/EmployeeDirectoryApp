@@ -1,3 +1,6 @@
 .employee-search {
-  margin-bottom: @grid-gutter-width / 2;
+  // removes "x" (or the clear feature) from IE inputs
+  input::-ms-clear {
+        display: none !important;
+  }
 }
