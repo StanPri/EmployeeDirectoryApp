@@ -1,24 +1,17 @@
 import React, {PropTypes} from 'react';
-import {Button, Form, FormControl, FormGroup, InputGroup} from 'react-bootstrap';
+import {FormControl, FormGroup} from 'react-bootstrap';
 
 Search.propTypes = {
-  EmployeeSearchOnChange: PropTypes.func.isRequired,
-  EmployeeSearchOnSubmit: PropTypes.func.isRequired
+  EmployeeSearchOnInput: PropTypes.func.isRequired
 };
 
 function Search(props) {
 
   return (
-    <Form horizontal className="employee-search" onSubmit={props.EmployeeSearchOnSubmit}>
-      <FormGroup>
-        <InputGroup>
-          <FormControl type="text" placeholder="Search" onChange={props.EmployeeSearchOnChange}/>
-          <InputGroup.Button>
-            <Button>Search</Button>
-          </InputGroup.Button>
-        </InputGroup>
+      <FormGroup className="has-feedback">
+          <FormControl type="text" placeholder="Search" onInput={props.EmployeeSearchOnInput}/>
+          <span className="glyphicon glyphicon-search form-control-feedback"></span>
       </FormGroup>
-    </Form>
   );
 }
 

@@ -17,11 +17,10 @@ class EmployeePage extends React.Component {
       employee: {},
       manager: {}
     };
-    this.EmployeeSearchHandleChange = this.EmployeeSearchHandleChange.bind(this);
+    this.EmployeeSearchHandleInput = this.EmployeeSearchHandleInput.bind(this);
     this.EmployeeListHandleClick = this.EmployeeListHandleClick.bind(this);
     this.EmployeePageNumbersHandleSelect = this.EmployeePageNumbersHandleSelect.bind(this);
     this.EmployeeManagerDetailHandleClick = this.EmployeeManagerDetailHandleClick.bind(this);
-    this.EmployeeSearchHandleSubmit = this.EmployeeSearchHandleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -37,7 +36,7 @@ class EmployeePage extends React.Component {
       });
   }
 
-  EmployeeSearchHandleChange(e) {
+  EmployeeSearchHandleInput(e) {
     if (e.target.value.length > 1) {
       let _search = '(?=.*' + e.target.value.split(/, +|,| +/).join(')(?=.*') + ')';
       let re = new RegExp(_search, 'i');
@@ -94,17 +93,12 @@ class EmployeePage extends React.Component {
     removeActive();
   }
 
-  EmployeeSearchHandleSubmit(e) {
-    e.preventDefault();
-  }
-
   render() {
     return (
       <Grid fluid>
         <Row>
           <Col xs={10} xsOffset={1} md={6} mdOffset={3} className="no-print">
-            <EmployeeSearch EmployeeSearchOnChange={this.EmployeeSearchHandleChange}
-              EmployeeSearchOnSubmit={this.EmployeeSearchHandleSubmit}/>
+            <EmployeeSearch EmployeeSearchOnInput={this.EmployeeSearchHandleInput}/>
           </Col>
         </Row>
         <Row>
