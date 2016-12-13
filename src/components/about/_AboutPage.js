@@ -15,7 +15,7 @@ class AboutPage extends React.Component {
     return (
       <Grid>
         <Row>
-          <Col xs={10} xsOffset={1} lg={8} lgOffset={2}>
+          <Col xs={12} md={8} mdOffset={2}>
             <h2>About</h2>
             <p>
               The Employee Directory application displays data located in PeopleSoft, Remedy, and Active Directory. This application is maintained by the Business Process Automation unit (BPAS), but the data is maintained by other units.
@@ -27,12 +27,12 @@ class AboutPage extends React.Component {
         </Row>
         <div className="add-padding"/>
         <Row>
-          <Col xs={10} xsOffset={1} lg={8} lgOffset={2}>
+          <Col xs={12} md={8} mdOffset={2}>
             <h2>Help Using the Employee Directory</h2>
           </Col>
         </Row>
         <Row>
-          <Col xs={10} xsOffset={1} lg={8} lgOffset={2}>
+          <Col xs={12} md={8} mdOffset={2}>
             <h3>How to view an employee&rsquo;s information</h3>
             <ListGroup>
               <ListGroupItem header="Step 1">
@@ -43,13 +43,13 @@ class AboutPage extends React.Component {
               </ListGroupItem>
             </ListGroup>
           </Col>
-          <Col xs={10} xsOffset={1} lg={8} lgOffset={2}>
+          <Col xs={12} md={8} mdOffset={2}>
             <Image className="help-fig center-block" src={help_fig01} alt="" responsive/>
           </Col>
         </Row>
         <div className="add-padding"/>
         <Row>
-          <Col xs={10} xsOffset={1} lg={8} lgOffset={2}>
+          <Col xs={12} md={8} mdOffset={2}>
             <h3>Additional Features</h3>
             <ListGroup>
               <ListGroupItem header="Print">
@@ -63,7 +63,7 @@ class AboutPage extends React.Component {
               </ListGroupItem>
             </ListGroup>
           </Col>
-          <Col xs={10} xsOffset={1} lg={8} lgOffset={2}>
+          <Col xs={12} md={8} mdOffset={2}>
             <Image className="help-fig center-block" src={help_fig02} alt="" responsive/>
           </Col>
         </Row>

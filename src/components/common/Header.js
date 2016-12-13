@@ -97,8 +97,10 @@ class Header extends React.Component {
 }
 
 function toggleMenuOnClick(e) {
-  document.getElementById('navbar-overlay').classList.toggle('hidden');
-  document.getElementById('navbar').classList.toggle('hidden');
+  if (document.body.clientWidth < 768) {
+    document.getElementById('navbar-overlay').classList.toggle('hidden');
+    document.getElementById('navbar').classList.toggle('hidden');
+  }
 }
 
 function sortByKey(array, key) {
