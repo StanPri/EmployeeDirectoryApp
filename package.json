@@ -63,6 +63,7 @@
     "less": "*",
     "less-loader": "*",
     "mocha": "*",
+    "moment": "*",
     "nock": "*",
     "npm-run-all": "*",
     "open": "*",

@@ -20,19 +20,19 @@ class AboutPage extends React.Component {
             <p>
               The Employee Directory application displays data located in PeopleSoft, Remedy, and Active Directory. This application is maintained by the Business Process Automation unit (BPAS), but the data is maintained by other units.
             </p>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={8} mdOffset={2}>
+            <h2>Contact</h2>
             <p>
               If you are having trouble using this application, or want to know the process for correcting a data discrepency, please contact the Service Desk at 916-464-4311 and ask to have a work order routed to the Applications Support / Business Process Automation Sprt group.
             </p>
           </Col>
         </Row>
-        <div className="add-padding"/>
         <Row>
           <Col xs={12} md={8} mdOffset={2}>
-            <h2>Help Using the Employee Directory</h2>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={8} mdOffset={2}>
+            <h2>Help</h2>
             <h3>How to view an employee&rsquo;s information</h3>
             <ListGroup>
               <ListGroupItem header="Step 1">

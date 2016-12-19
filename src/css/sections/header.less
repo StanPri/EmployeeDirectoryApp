@@ -36,13 +36,16 @@ body {
       &:focus,
       &:hover {
         text-decoration: none;
-        background-color: @nav-link-hover-bg;
       }
       .btn {
         padding: 2 * @header-padding;
         @media (min-width: @screen-sm-min) {
           padding: @header-padding (2*@header-padding);
         }
+      }
+      &.active > .btn.btn-outline {
+        background: rgba(0,0,0,.15);
+        border-color: rgba(255,255,255,.4);
       }
     }
     // Disabled state sets text to gray and nukes hover/tab effects
@@ -88,6 +91,9 @@ body {
       background: rgba(0,0,0,.15);
       border-color: rgba(255,255,255,.3);
     }
+    &:focus {
+      outline: none;
+    }
   }
 
   .navbar-right {
@@ -130,9 +136,7 @@ body {
   }
 
   .header-title {
-    pointer-events: none;
     height: 0;
-    color: #fff;
     position: absolute;
     width: 100%;
     left: 0;
@@ -148,6 +152,10 @@ body {
     @media (min-width: @screen-lg-min) {
       margin-top: floor(3.5 * @header-padding);
       font-size: 2em;
+    }
+    > a {
+      color: #fff;
+      text-decoration: none;
     }
   }
 }

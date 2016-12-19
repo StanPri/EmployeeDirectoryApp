@@ -69,7 +69,11 @@ class Header extends React.Component {
           </label>
           <a href="http://www.ca.gov"><img className="header-ca-logo" src={ca_gov_logo}/></a>
           <a href="http://www.cio.ca.gov" className="header-cio-logo"><img src={cio_logo}/></a>
-          <h1 className="header-title">Employee Directory</h1>
+          <h1 className="header-title">
+            <Link to="/">
+              Employee Directory
+            </Link>
+          </h1>
         </div>
         <div className="navbar-collapse collapse hidden" id="navbar">
           <ul className="nav navbar-nav navbar-right">
