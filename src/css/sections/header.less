@@ -1,12 +1,3 @@
-body {
-  margin-top: floor(@navbar-height / 1.5) + floor(@grid-gutter-width / 2);
-  @media (min-width: @screen-md-min) {
-    margin-top: floor(@navbar-height / 2) + floor(@grid-gutter-width / 2) + 10px;
-  }
-  @media (min-width: @screen-lg-min) {
-    margin-top: @navbar-height + floor(@grid-gutter-width / 2);
-  }
-}
 //
 // Navs
 // --------------------------------------------------
@@ -68,7 +59,7 @@ body {
   margin-bottom: floor(@grid-gutter-width / 4);
 }
 
-.navbar-fixed-top {
+.navbar-default {
   background-color: @brand-primary;
   border-bottom: 3px solid #fbad23;
   min-width: 360px;
@@ -76,7 +67,9 @@ body {
   @media (min-width: @screen-lg-min) {
     min-height: @navbar-height;
   }
-
+  a {
+    text-decoration: none !important;
+  }
   .btn.btn-outline {
     box-sizing: border-box;
     background-color: transparent;
@@ -96,6 +89,13 @@ body {
     }
   }
 
+  .navbar-collapse {
+    @media (min-width: @screen-sm-min) {
+      display: block !important;
+      visibility: visible !important;
+    }
+  }
+
   .navbar-right {
     margin-right: 0;
     margin-top: floor(@header-padding / 2);
@@ -104,47 +104,7 @@ body {
     }
   }
 
-  .header-cio-logo {
-    width: auto;
-    @media (min-width: @screen-lg-min) {
-      width: 280px;
-    }
-    display: block;
-    float: left;
-    margin: @header-padding;
-
-    img {
-      width: auto;
-      height: floor(@header-ca-logo-height / 1.5);
-      margin: 0;
-      @media (min-width: @screen-lg-min) {
-        height: @header-cio-logo-height;
-        margin: 0 floor(@grid-gutter-width / 2);
-      }
-      float: left;
-    }
-  }
-
-  .header-ca-logo {
-    height: floor(@header-ca-logo-height / 1.5);
-    @media (min-width: @screen-lg-min) {
-      height: @header-ca-logo-height;
-    }
-    width: auto;
-    margin: @header-padding;
-    float: left;
-  }
-
   .header-title {
-    height: 0;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    margin: auto;
-    padding: 0;
-    margin-top: floor(1.8 * @header-padding);
-    font-size: 1.7em;
     display: none;
     @media (min-width: @screen-sm-min) {
       display: block;
@@ -155,7 +115,6 @@ body {
     }
     > a {
       color: #fff;
-      text-decoration: none;
     }
   }
 }

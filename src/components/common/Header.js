@@ -2,8 +2,6 @@ import React, {PropTypes} from 'react';
 import {Link, IndexLink} from 'react-router';
 import {Navbar, Button} from 'react-bootstrap';
 import json2csv from 'json2csv';
-const ca_gov_logo = require('../../images/ca_gov_logo.png');
-const cio_logo = require('../../images/cio_logo.png');
 
 class Header extends React.Component {
   constructor(props) {
@@ -58,7 +56,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <Navbar fixedTop fluid>
+      <Navbar fluid>
         <input type="checkbox" id="navbar-toggle-cbox" className="hidden"/>
         <div className="navbar-header">
           <label htmlFor="navbar-toggle-cbox" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" onClick={toggleMenuOnClick}>
@@ -67,8 +65,6 @@ class Header extends React.Component {
             <span className="icon-bar"/>
             <span className="icon-bar"/>
           </label>
-          <a href="http://www.ca.gov"><img className="header-ca-logo" src={ca_gov_logo}/></a>
-          <a href="http://www.cio.ca.gov" className="header-cio-logo"><img src={cio_logo}/></a>
           <h1 className="header-title">
             <Link to="/">
               Employee Directory

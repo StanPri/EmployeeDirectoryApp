@@ -13,7 +13,7 @@ const help_fig02 = require('../../images/help_fig02.png');
 class AboutPage extends React.Component {
   render() {
     return (
-      <Grid>
+      <Grid fluid>
         <Row>
           <Col xs={12} md={8} mdOffset={2}>
             <h2>About</h2>
