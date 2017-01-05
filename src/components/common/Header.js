@@ -75,17 +75,17 @@ class Header extends React.Component {
           <ul className="nav navbar-nav navbar-right">
             <li onClick={toggleMenuOnClick}>
               <IndexLink to="/" activeClassName="active">
-                <Button className="btn-outline">Search</Button>
+                <Button className="btn-outline"><span className="glyphicon glyphicon-home nav-icon"/>Home</Button>
               </IndexLink>
             </li>
             <li onClick={toggleMenuOnClick}>
               <a href="#">
-                <Button className="btn-outline" onClick={this.ConvertToExcelHandleClick}>Export</Button>
+                <Button className="btn-outline" onClick={this.ConvertToExcelHandleClick}><span className="glyphicon glyphicon-export nav-icon"/>Export</Button>
               </a>
             </li>
             <li onClick={toggleMenuOnClick}>
               <Link to="/about" activeClassName="active">
-                <Button className="btn-outline">About</Button>
+                <Button className="btn-outline"><span className="glyphicon glyphicon-question-sign nav-icon"/>About</Button>
               </Link>
             </li>
           </ul>
@@ -97,10 +97,8 @@ class Header extends React.Component {
 }
 
 function toggleMenuOnClick(e) {
-  if (document.body.clientWidth < 768) {
-    document.getElementById('navbar-overlay').classList.toggle('hidden');
-    document.getElementById('navbar').classList.toggle('hidden');
-  }
+  document.getElementById('navbar-overlay').classList.toggle('hidden');
+  document.getElementById('navbar').classList.toggle('hidden');
 }
 
 function sortByKey(array, key) {

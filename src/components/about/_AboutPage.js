@@ -43,9 +43,6 @@ class AboutPage extends React.Component {
               </ListGroupItem>
             </ListGroup>
           </Col>
-          <Col xs={12} md={8} mdOffset={2}>
-            <Image className="help-fig center-block" src={help_fig01} alt="" responsive/>
-          </Col>
         </Row>
         <div className="add-padding"/>
         <Row>
@@ -59,12 +56,9 @@ class AboutPage extends React.Component {
                 Select any email address to start a new email using your default email client.
               </ListGroupItem>
               <ListGroupItem header="Manager information">
-                Select the manager link to view that employee's details.
+                Select the manager link to view that employee&#39;s details.
               </ListGroupItem>
             </ListGroup>
-          </Col>
-          <Col xs={12} md={8} mdOffset={2}>
-            <Image className="help-fig center-block" src={help_fig02} alt="" responsive/>
           </Col>
         </Row>
         <div className="add-padding"/>
