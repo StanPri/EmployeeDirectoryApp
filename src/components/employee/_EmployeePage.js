@@ -37,11 +37,11 @@ class EmployeePage extends React.Component {
   }
 
   EmployeeSearchHandleInput(e) {
-    if (e.target.value.length > 1) {
+    if (e.target.value.length) {
       let _search = '(?=.*' + e.target.value.split(/, +|,| +/).join(')(?=.*') + ')';
       let re = new RegExp(_search, 'i');
       let _employees = this.state.employeeData.filter((emp) => {
-        if (emp.fullName.match(re) || emp.group.match(re)) {
+        if (`${emp.fullName} ${emp.group}`.match(re)) {
           return true;
         }
         return false;
@@ -96,9 +96,12 @@ class EmployeePage extends React.Component {
   render() {
     return (
       <Grid fluid>
-        <Row>
-          <Col xs={10} xsOffset={1} md={6} mdOffset={3} className="no-print">
+        <Row className="no-print">
+          <Col xs={12} md={6}>
             <EmployeeSearch EmployeeSearchOnInput={this.EmployeeSearchHandleInput}/>
+          </Col>
+          <Col xs={12} md={6}>
+            <p>Search by first name, last name, or group name. Click on a table row to see the employee details. From within an employee&#39;s details, select the manager&#39;s name to view their details.</p>
           </Col>
         </Row>
         <Row>

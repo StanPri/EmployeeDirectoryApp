@@ -56,47 +56,50 @@ class Header extends React.Component {
 
   render() {
     return (
-      <Navbar fluid>
-        <input type="checkbox" id="navbar-toggle-cbox" className="hidden"/>
-        <div className="navbar-header">
-          <label htmlFor="navbar-toggle-cbox" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" onClick={toggleMenuOnClick}>
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"/>
-            <span className="icon-bar"/>
-            <span className="icon-bar"/>
-          </label>
-          <h1 className="header-title">
-            <Link to="/">
-              Employee Directory
-            </Link>
-          </h1>
-        </div>
-        <div className="navbar-collapse collapse hidden" id="navbar">
-          <ul className="nav navbar-nav navbar-right">
-            <li onClick={toggleMenuOnClick}>
-              <IndexLink to="/" activeClassName="active">
-                <Button className="btn-outline"><span className="glyphicon glyphicon-home nav-icon"/>Home</Button>
-              </IndexLink>
-            </li>
-            <li onClick={toggleMenuOnClick}>
-              <a href="#">
-                <Button className="btn-outline" onClick={this.ConvertToExcelHandleClick}><span className="glyphicon glyphicon-export nav-icon"/>Export</Button>
-              </a>
-            </li>
-            <li onClick={toggleMenuOnClick}>
-              <Link to="/about" activeClassName="active">
-                <Button className="btn-outline"><span className="glyphicon glyphicon-question-sign nav-icon"/>About</Button>
+      <div>
+        <Navbar fluid>
+          <input type="checkbox" id="navbar-toggle-cbox" className="hidden"/>
+          <div className="navbar-header">
+            <label htmlFor="navbar-toggle-cbox" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" onClick={toggleMenuOnClick}>
+              <span className="sr-only">Toggle navigation</span>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
+            </label>
+            <h1 className="header-title" onClick={(e) => {if (!document.getElementById('navbar').classList.contains('hidden')) {toggleMenuOnClick(e);}}}>
+              <Link to="/">
+                Employee Directory
               </Link>
-            </li>
-          </ul>
-        </div>
+            </h1>
+          </div>
+          <div className="navbar-collapse collapse hidden" id="navbar">
+            <ul className="nav navbar-nav navbar-right">
+              <li onClick={toggleMenuOnClick}>
+                <IndexLink to="/" activeClassName="active">
+                  <Button className="btn-outline"><span className="glyphicon glyphicon-home button-icon"/>Home</Button>
+                </IndexLink>
+              </li>
+              <li onClick={toggleMenuOnClick}>
+                <a href="#">
+                  <Button className="btn-outline" onClick={this.ConvertToExcelHandleClick}><span className="glyphicon glyphicon-export button-icon"/>Export</Button>
+                </a>
+              </li>
+              <li onClick={toggleMenuOnClick}>
+                <Link to="/about" activeClassName="active">
+                  <Button className="btn-outline"><span className="glyphicon glyphicon-question-sign button-icon"/>About</Button>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </Navbar>
         <div id="navbar-overlay" className="hidden" onClick={toggleMenuOnClick}/>
-      </Navbar>
+      </div>
     );
   }
 }
 
 function toggleMenuOnClick(e) {
+  e.preventDefault();
   document.getElementById('navbar-overlay').classList.toggle('hidden');
   document.getElementById('navbar').classList.toggle('hidden');
 }

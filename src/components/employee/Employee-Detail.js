@@ -28,7 +28,7 @@ function EmployeeDetail(props) {
         <tr>
           <th colSpan="2">
             <span className="pull-left employee-detail-header">{props.employee.fullName}</span>
-            <Button className="pull-right no-print" onClick={window.print}>Print</Button>
+            <Button bsSize="small" className="pull-right no-print" onClick={window.print}><span className="glyphicon glyphicon-print button-icon"/>Print</Button>
           </th>
         </tr>
       </thead>
