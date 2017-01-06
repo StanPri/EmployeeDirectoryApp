@@ -24,16 +24,14 @@ class EmployeePage extends React.Component {
   }
 
   componentDidMount() {
-    fetch(process.env.API_URL)
-      .then(response => response.json())
-      .then(json => {
-        json = sortByKey(json, 'lastName');
-        this.setState({
-          employees: json,
-          employeeData: json,
-          numberOfPages: Math.ceil(json.length / this.state.numPerPage)
-        });
+    fetch(process.env.API_URL).then(response => response.json()).then(json => {
+      json = sortByKey(json, 'lastName');
+      this.setState({
+        employees: json,
+        employeeData: json,
+        numberOfPages: Math.ceil(json.length / this.state.numPerPage)
       });
+    });
   }
 
   EmployeeSearchHandleInput(e) {
@@ -47,10 +45,14 @@ class EmployeePage extends React.Component {
         return false;
       });
       this.setState({employees: _employees});
-      this.setState({numberOfPages: Math.ceil(_employees.length / this.state.numPerPage)});
+      this.setState({
+        numberOfPages: Math.ceil(_employees.length / this.state.numPerPage)
+      });
     } else {
       this.setState({employees: this.state.employeeData});
-      this.setState({numberOfPages: Math.ceil(this.state.employeeData.length / this.state.numPerPage)});
+      this.setState({
+        numberOfPages: Math.ceil(this.state.employeeData.length / this.state.numPerPage)
+      });
     }
     removeActive();
     this.setState({employee: {}});
@@ -58,7 +60,7 @@ class EmployeePage extends React.Component {
   }
 
   EmployeeListHandleClick(e) {
-    let _employee = this.state.employees[this.state.currentPage * this.state.numPerPage + +e.target.parentNode.dataset.employee];
+    let _employee = this.state.employees[this.state.currentPage * this.state.numPerPage + + e.target.parentNode.dataset.employee];
     let _manager = this.state.employeeData.filter((emp) => {
       return emp.fullName === _employee.manager;
     })[0];
@@ -73,7 +75,9 @@ class EmployeePage extends React.Component {
   }
 
   EmployeePageNumbersHandleSelect(e) {
-    this.setState({currentPage: e-1});
+    this.setState({
+      currentPage: e - 1
+    });
     removeActive();
   }
 
@@ -101,22 +105,16 @@ class EmployeePage extends React.Component {
             <EmployeeSearch EmployeeSearchOnInput={this.EmployeeSearchHandleInput}/>
           </Col>
           <Col xs={12} md={6}>
-            <p>Search by first name, last name, or group name. Click on a table row to see the employee details. From within an employee&#39;s details, select the manager&#39;s name to view their details.</p>
+            <p className="search-help-text">Search by first name, last name, or group name. Click on a table row to see the employee details. From within an employee&#39;s details, select the manager&#39;s name to view their details.</p>
           </Col>
         </Row>
         <Row>
           <Col xs={12} md={6} className="left-column no-print">
-            <EmployeeList employees={this.state.employees} numberOfPages={this.state.numberOfPages}
-              currentPage={this.state.currentPage} EmployeeListOnClick={this.EmployeeListHandleClick}
-              EmployeePageNumbersOnSelect={this.EmployeePageNumbersHandleSelect}
-              numPerPage={this.state.numPerPage}/>
+            <EmployeeList employees={this.state.employees} numberOfPages={this.state.numberOfPages} currentPage={this.state.currentPage} EmployeeListOnClick={this.EmployeeListHandleClick} EmployeePageNumbersOnSelect={this.EmployeePageNumbersHandleSelect} numPerPage={this.state.numPerPage}/>
           </Col>
           <Col xs={12} md={6} className="right-column">
             <EmployeeDetail employee={this.state.employee}/>
-            <EmployeeManagerDetail
-              employee={this.state.employee}
-              manager={this.state.manager}
-              EmployeeManagerDetailOnClick={this.EmployeeManagerDetailHandleClick}/>
+            <EmployeeManagerDetail employee={this.state.employee} manager={this.state.manager} EmployeeManagerDetailOnClick={this.EmployeeManagerDetailHandleClick}/>
           </Col>
         </Row>
       </Grid>
@@ -126,15 +124,21 @@ class EmployeePage extends React.Component {
 
 function sortByKey(array, key) {
   return array.sort(function(a, b) {
-      let x = a[key]; let y = b[key];
-      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    let x = a[key];
+    let y = b[key];
+    return ((x < y)
+      ? -1
+      : ((x > y)
+        ? 1
+        : 0));
   });
 }
 
 function removeActive() {
   let e = document.querySelectorAll('[data-employee]');
   for (let i of e) {
-      i.classList.remove('active'); }
+    i.classList.remove('active');
+  }
 }
 
 EmployeePage.propTypes = {};

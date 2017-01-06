@@ -71,8 +71,8 @@
 
 .container,
 .container-fluid {
-   > .navbar-header,
-  > .navbar-collapse {
+   > .navbar-collapse,
+  > .navbar-header {
     margin-right: -@navbar-padding-horizontal;
     margin-left: -@navbar-padding-horizontal;
     z-index: @index;
@@ -267,8 +267,8 @@
 }
 
 .navbar-toggle {
-  margin-top: floor(@grid-gutter-width / 5);
-  margin-bottom: floor(@grid-gutter-width / 5);
+  margin-top: floor(@padding-size / 5);
+  margin-bottom: floor(@padding-size / 5);
 }
 
 .navbar-default {
@@ -302,10 +302,10 @@
   }
 
   .header-title {
-    font-size: 2em;
-    margin-top: floor(1.8 * @header-padding) !important;
-    margin-bottom: floor(1.8 * @header-padding) !important;
-    padding-left: floor(@grid-gutter-width / 2) !important;
+    font-size: 1.3em;
+    margin: 0 !important;
+    padding: floor(1.8 * @header-padding) !important;
+
     > a {
       color: #fff;
     }
