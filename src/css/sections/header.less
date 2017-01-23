@@ -1,274 +1,10 @@
-//
-// Navbars
-// --------------------------------------------------
-// Wrapper and base class
-//
-// Provide a static navbar from which we expand to create full-width, fixed, and
-// other navbar variations.
+.navbar-nav {
+  margin: 0;
 
-.navbar {
-  position: relative;
-  min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-  margin-bottom: @navbar-margin-bottom;
-  border: 1px solid transparent;
-  // Prevent floats from breaking the navbar
-  &:extend(.clearfix all);
-  @media (min-width: @grid-float-breakpoint) {
-    border-radius: @navbar-border-radius;
+  > li > a {
+    padding: 2px;
+    line-height: @line-height-computed;
   }
-}
-// Navbar heading
-//
-// Groups `.navbar-brand` and `.navbar-toggle` into a single component for easy
-// styling of responsive aspects.
-
-.navbar-header {
-  &:extend(.clearfix all);
-}
-// Navbar collapse (body)
-//
-// Group your navbar content into this for easy collapsing and expanding across
-// various device sizes. By default, this content is collapsed when <768px, but
-// will expand past that for a horizontal display.
-//
-// To start (on mobile devices) the navbar links, forms, and buttons are stacked
-// vertically and include a `max-height` to overflow in case you have too much
-// content for the user's viewport.
-
-.navbar-collapse {
-  overflow-x: visible;
-  padding-right: @navbar-padding-horizontal;
-  padding-left: @navbar-padding-horizontal;
-  border-top: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
-  &:extend(.clearfix all);
-  -webkit-overflow-scrolling: touch;
-
-  &.in {
-    overflow-y: auto;
-  }
-  @media (min-width: @grid-float-breakpoint) {
-    width: auto;
-    border-top: 0;
-    box-shadow: none;
-
-    &.in {
-      overflow-y: visible;
-    }
-    // Undo the collapse side padding for navbars with containers to ensure
-    // alignment of right-aligned contents.
-    .navbar-fixed-bottom &,
-    .navbar-fixed-top &,
-    .navbar-static-top & {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
-// Both navbar header and collapse
-//
-// When a container is present, change the behavior of the header and collapse.
-
-.container,
-.container-fluid {
-   > .navbar-collapse,
-  > .navbar-header {
-    margin-right: -@navbar-padding-horizontal;
-    margin-left: -@navbar-padding-horizontal;
-    z-index: @index;
-    position: relative;
-  }
-}
-// Brand/project name
-
-.navbar-brand {
-  float: left;
-  padding: @navbar-padding-vertical @navbar-padding-horizontal;
-  font-size: @font-size-large;
-  line-height: @line-height-computed;
-  height: @navbar-height;
-
-  &:focus,
-  &:hover {
-    text-decoration: none;
-  }
-
-  > img {
-    display: block;
-  }
-  @media (min-width: @grid-float-breakpoint) {
-    .navbar > .container &,
-    .navbar > .container-fluid & {
-      margin-left: -@navbar-padding-horizontal;
-    }
-  }
-}
-// Navbar toggle
-//
-// Custom button for toggling the `.navbar-collapse`, powered by the collapse
-// JavaScript plugin.
-
-.navbar-toggle {
-  position: relative;
-  float: right;
-  margin-right: @navbar-padding-horizontal;
-  padding: 9px 10px;
-  .navbar-vertical-align(34px);
-  background-color: transparent;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid;
-  border-radius: @border-radius-base;
-  // We remove the `outline` here, but later compensate by attaching `:hover`
-  // styles to `:focus`.
-  &:focus {
-    outline: 0;
-  }
-  // Bars
-  .icon-bar {
-    display: block;
-    width: 15px;
-    height: 1px;
-    border-radius: 1px;
-  }
-
-  .icon-bar + .icon-bar {
-    margin-top: 4px;
-  }
-}
-// Buttons in navbars
-//
-// Vertically center a button within a navbar (when *not* in a form).
-
-.navbar-btn {
-  .navbar-vertical-align(@input-height-base);
-
-  &.btn-sm {
-    .navbar-vertical-align(@input-height-small);
-  }
-
-  &.btn-xs {
-    .navbar-vertical-align(22);
-  }
-}
-// Alternate navbars
-// --------------------------------------------------
-// Default navbar
-
-.navbar-default {
-  background-color: @navbar-default-bg;
-  border: none;
-  border-radius: @border-radius-base @border-radius-base 0 0;
-  position: relative;
-  z-index: @index;
-  transition: 1s;
-
-  .navbar-brand {
-    color: @navbar-default-brand-color;
-
-    &:focus,
-    &:hover {
-      color: @navbar-default-brand-hover-color;
-      background-color: @navbar-default-brand-hover-bg;
-    }
-  }
-
-  .navbar-text {
-    color: @navbar-default-color;
-  }
-
-  .navbar-nav {
-    > li > a {
-      color: @navbar-default-link-color;
-
-      &:focus,
-      &:hover {
-        color: @navbar-default-link-hover-color;
-        background-color: @navbar-default-link-hover-bg;
-      }
-    }
-
-    > .active > a {
-      &,
-      &:focus,
-      &:hover {
-        color: @navbar-default-link-active-color;
-        background-color: @navbar-default-link-active-bg;
-      }
-    }
-
-    > .disabled > a {
-      &,
-      &:focus,
-      &:hover {
-        color: @navbar-default-link-disabled-color;
-        background-color: @navbar-default-link-disabled-bg;
-      }
-    }
-  }
-
-  .navbar-toggle {
-    border-color: fade(@navbar-default-toggle-border-color, 60%);
-
-    &:focus,
-    &:hover {
-      background-color: @navbar-default-toggle-hover-bg;
-    }
-
-    .icon-bar {
-      background-color: @navbar-default-toggle-icon-bar-bg;
-    }
-  }
-}
-
-.nav {
-  margin-bottom: floor(@grid-gutter-width / 2);
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0; // Override default ul/ol
-  list-style: none;
-  &:extend(.clearfix all);
-
-  > li {
-    position: relative;
-    display: block;
-
-    > a {
-      position: relative;
-      display: block;
-      padding: @header-padding @header-padding 0;
-
-      &:focus,
-      &:hover {
-        text-decoration: none;
-      }
-
-      .btn {
-        padding: 2 * @header-padding;
-      }
-
-      &.active > .btn.btn-outline {
-        background: rgba(0,0,0,.15);
-        border-color: rgba(255,255,255,.4);
-      }
-    }
-    // Disabled state sets text to gray and nukes hover/tab effects
-    &.disabled > a {
-      color: @nav-disabled-link-color;
-
-      &:focus,
-      &:hover {
-        color: @nav-disabled-link-hover-color;
-        text-decoration: none;
-        background-color: transparent;
-        cursor: @cursor-disabled;
-      }
-    }
-  }
-}
-
-.navbar-toggle {
-  margin-top: floor(@padding-size / 5);
-  margin-bottom: floor(@padding-size / 5);
 }
 
 .navbar-default {
@@ -289,7 +25,6 @@
     border-color: rgba(0,0,0,0);
     margin: auto;
     display: block;
-    width: 100%;
 
     &:hover {
       background: rgba(0,0,0,.15);
@@ -334,4 +69,12 @@
   left: 0;
   top: 0;
   display: block;
+}
+/* FOR PADDING ABOVE IN ICENTRAL */
+#container #wrapper #content-full h1.post-title {
+  display: block !important;
+  visibility: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 10px !important;
 }

@@ -5,7 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('development'),
-  'process.env.VERSION': JSON.stringify(`D.${new moment().format("YY.MM.DD.hh.mm.A").slice(0,-1)}`),
+  'process.env.VERSION': JSON.stringify(`D.${new moment().format("YY.MM.DD")}`),
   'process.env.API_URL': JSON.stringify('http://testEDAPI/employees')
 };
 

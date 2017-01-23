@@ -101,11 +101,8 @@ class EmployeePage extends React.Component {
     return (
       <Grid fluid>
         <Row className="no-print">
-          <Col xs={12} md={6}>
+          <Col xs={12} md={6} mdOffset={3}>
             <EmployeeSearch EmployeeSearchOnInput={this.EmployeeSearchHandleInput}/>
-          </Col>
-          <Col xs={12} md={6}>
-            <p className="search-help-text">Search by first name, last name, or group name. Click on a table row to see the employee details. From within an employee&#39;s details, select the manager&#39;s name to view their details.</p>
           </Col>
         </Row>
         <Row>
