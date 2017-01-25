@@ -1,16 +1,21 @@
 .navbar-nav {
   margin: 0;
 
-  > li > a {
+  > li {
+    float: left;
     padding: 2px;
-    line-height: @line-height-computed;
+    > a {
+      line-height: @line-height-computed;
+    }
   }
+  list-style-type: none;
 }
 
 .navbar-default {
   background-color: @brand-primary;
   min-width: 360px;
   min-height: 10px;
+  margin-bottom: floor(@grid-gutter-width / 2);
 
   a {
     text-decoration: none !important;
@@ -40,10 +45,15 @@
     font-size: 1.3em;
     margin: 0 !important;
     padding: floor(1.8 * @header-padding) !important;
+    float: left;
 
     > a {
-      color: #fff;
+      color: #fff !important;
     }
+  }
+
+  .navbar-right {
+    float: right;
   }
 }
 

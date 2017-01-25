@@ -7,8 +7,9 @@ import {
   ListGroupItem,
   Image
 } from 'react-bootstrap';
-const help_fig01 = require('../../images/help_fig01.png');
-const help_fig02 = require('../../images/help_fig02.png');
+
+const help_fig01 = "http://employeedirectory/620abd075b863370fe320253f335b5c1.png";
+const help_fig02 = "http://employeedirectory/ce1233e7155f459fe374c40c71cf8417.png";
 
 class AboutPage extends React.Component {
   render() {
@@ -42,6 +43,7 @@ class AboutPage extends React.Component {
                 Select an employee to view their information.
               </ListGroupItem>
             </ListGroup>
+            <Image className="help-fig" src={help_fig01} alt="" responsive />
           </Col>
         </Row>
         <div className="add-padding"/>
@@ -59,6 +61,7 @@ class AboutPage extends React.Component {
                 Select the manager link to view that employee&#39;s details.
               </ListGroupItem>
             </ListGroup>
+            <Image className="help-fig" src={help_fig02} alt="" responsive />
           </Col>
         </Row>
         <div className="add-padding"/>

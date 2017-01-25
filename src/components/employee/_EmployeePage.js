@@ -101,7 +101,7 @@ class EmployeePage extends React.Component {
     return (
       <Grid fluid>
         <Row className="no-print">
-          <Col xs={12} md={6} mdOffset={3}>
+          <Col xs={12} sm={6} smOffset={3}>
             <EmployeeSearch EmployeeSearchOnInput={this.EmployeeSearchHandleInput}/>
           </Col>
         </Row>
