@@ -8,6 +8,8 @@ import {
   Image
 } from 'react-bootstrap';
 
+import img1 from '../../images/help_fig01.png';
+import img2 from '../../images/help_fig02.png';
 const help_fig01 = "http://employeedirectory/620abd075b863370fe320253f335b5c1.png";
 const help_fig02 = "http://employeedirectory/ce1233e7155f459fe374c40c71cf8417.png";
 
