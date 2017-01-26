@@ -57,6 +57,7 @@ class Header extends React.Component {
   render() {
     return (
       <div>
+        <link rel="stylesheet" href="http://TestEmployeeDirectory/ed_styles.css"/>
         <Navbar fluid>
           <input type="checkbox" id="navbar-toggle-cbox" className="hidden"/>
           <div className="navbar-header">

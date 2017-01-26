@@ -30,7 +30,7 @@ export default {
   plugins: [
     new webpack.DefinePlugin(GLOBALS),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin("ed_styles.css"),
     new webpack.NoErrorsPlugin()
   ],
   module: {
