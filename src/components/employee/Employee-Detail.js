@@ -36,8 +36,8 @@ function EmployeeDetail(props) {
         {Object.keys(fields).map((key) => {
           return (
             <tr key={key}>
-              <td className="col-xs-3">{fields[key]}</td>
-              <td className="col-xs-9">
+              <td className="col-xs-4">{fields[key]}</td>
+              <td className="col-xs-8">
                 {props.employee[key]
                   ? key === 'email'
                     ? <a href={"mailto:" + props.employee.email}>{props.employee.email}</a>

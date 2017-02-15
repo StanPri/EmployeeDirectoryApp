@@ -9,7 +9,7 @@ function Search(props) {
 
   return (
       <FormGroup className="has-feedback">
-          <FormControl type="text" placeholder="Search" onInput={props.EmployeeSearchOnInput}/>
+          <FormControl id="employee-search" type="text" placeholder="Search" onInput={props.EmployeeSearchOnInput}/>
           <span className="glyphicon glyphicon-search form-control-feedback"/>
       </FormGroup>
   );
